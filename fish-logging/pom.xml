@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>fish-cloud</artifactId>
+        <groupId>cn.lyn4ever</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>fish-logging</artifactId>
+    <name>日志模块</name>
+
+    <dependencies>
+        <!--web服务-->
+        <dependency>
+            <groupId>cn.lyn4ever</groupId>
+            <artifactId>alter-mvc</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.lyn4ever</groupId>
+            <artifactId>alter-security</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--数据源-->
+        <dependency>
+            <groupId>cn.lyn4ever</groupId>
+            <artifactId>alter-jpa</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.lyn4ever</groupId>
+            <artifactId>alter-mysql</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>cn.lyn4everr</groupId>-->
+        <!--            <artifactId>alter-security</artifactId>-->
+        <!--            <version>1.0.0</version>-->
+        <!--            <scope>compile</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>cn.lyn4everr</groupId>-->
+        <!--            <artifactId>fish-common</artifactId>-->
+        <!--            <version>1.0.0</version>-->
+        <!--        </dependency>-->
+    </dependencies>
+</project>

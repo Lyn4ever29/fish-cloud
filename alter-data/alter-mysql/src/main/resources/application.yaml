@@ -1,0 +1,10 @@
+spring:
+  #配置 Jpa
+  jpa:
+    hibernate:
+      # 由类直接生成数据库表
+      ddl-auto: none
+    open-in-view: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
