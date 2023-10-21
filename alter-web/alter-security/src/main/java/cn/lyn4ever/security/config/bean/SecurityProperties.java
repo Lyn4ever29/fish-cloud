@@ -13,9 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.lyn4ever.modules.security.config.bean;
+package cn.lyn4ever.security.config.bean;
 
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * Jwt参数配置
@@ -65,6 +67,11 @@ public class SecurityProperties {
      * 续期时间
      */
     private Long renew;
+
+    /**
+     * 配置的放行url
+     */
+    private List<String> ignoreUrls;
 
     public String getTokenStartWith() {
         return tokenStartWith + " ";

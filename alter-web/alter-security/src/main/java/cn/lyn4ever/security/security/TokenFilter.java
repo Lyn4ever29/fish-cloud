@@ -13,14 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.lyn4ever.modules.security.security;
+package cn.lyn4ever.security.security;
 
 import cn.hutool.core.util.StrUtil;
-import cn.lyn4ever.modules.security.config.bean.SecurityProperties;
-import cn.lyn4ever.modules.security.service.OnlineUserService;
-import cn.lyn4ever.modules.security.service.UserCacheManager;
-import cn.lyn4ever.modules.security.service.dto.OnlineUserDto;
-import io.jsonwebtoken.ExpiredJwtException;
+import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.service.CloudUserDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -34,7 +31,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Objects;
 
 /**
  * @author /
@@ -45,20 +41,17 @@ public class TokenFilter extends GenericFilterBean {
 
     private final TokenProvider tokenProvider;
     private final SecurityProperties properties;
-    private final OnlineUserService onlineUserService;
-    private final UserCacheManager userCacheManager;
+    private final CloudUserDetailService cloudUserDetailService;
 
     /**
-     * @param tokenProvider     Token
-     * @param properties        JWT
-     * @param onlineUserService 用户在线
-     * @param userCacheManager  用户缓存工具
+     * @param tokenProvider          Token
+     * @param properties             JWT
+     * @param cloudUserDetailService 用户Service
      */
-    public TokenFilter(TokenProvider tokenProvider, SecurityProperties properties, OnlineUserService onlineUserService, UserCacheManager userCacheManager) {
+    public TokenFilter(TokenProvider tokenProvider, SecurityProperties properties, CloudUserDetailService cloudUserDetailService) {
         this.properties = properties;
-        this.onlineUserService = onlineUserService;
+        this.cloudUserDetailService = cloudUserDetailService;
         this.tokenProvider = tokenProvider;
-        this.userCacheManager = userCacheManager;
     }
 
     @Override
@@ -68,20 +61,9 @@ public class TokenFilter extends GenericFilterBean {
         String token = resolveToken(httpServletRequest);
         // 对于 Token 为空的不需要去查 Redis
         if (StrUtil.isNotBlank(token)) {
-            OnlineUserDto onlineUserDto = null;
-            boolean cleanUserCache = false;
-            try {
-                String loginKey = tokenProvider.loginKey(token);
-                onlineUserDto = onlineUserService.getOne(loginKey);
-            } catch (ExpiredJwtException e) {
-                log.error(e.getMessage());
-                cleanUserCache = true;
-            } finally {
-                if (cleanUserCache || Objects.isNull(onlineUserDto)) {
-                    userCacheManager.cleanUserCache(String.valueOf(tokenProvider.getClaims(token).get(TokenProvider.AUTHORITIES_KEY)));
-                }
-            }
-            if (onlineUserDto != null && StringUtils.hasText(token)) {
+
+            Object user = cloudUserDetailService.beforeTokenFresh(token);
+            if (user != null && StringUtils.hasText(token)) {
                 Authentication authentication = tokenProvider.getAuthentication(token);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 // Token 续期

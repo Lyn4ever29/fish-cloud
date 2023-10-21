@@ -44,7 +44,9 @@
         <fastjson.version>1.2.83</fastjson.version>
 
         <lombok.version>1.18.24</lombok.version>
-        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+
         <hutool.version>5.8.20</hutool.version>
         <!--以下版本说明来自于Springcloud Alibaba-->
         <!--https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E-->

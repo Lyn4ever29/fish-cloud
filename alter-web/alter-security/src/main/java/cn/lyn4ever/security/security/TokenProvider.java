@@ -13,13 +13,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.lyn4ever.modules.security.security;
+package cn.lyn4ever.security.security;
 
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.crypto.digest.DigestUtil;
-import cn.lyn4ever.modules.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.config.bean.SecurityProperties;
 import cn.lyn4ever.utils.RedisUtils;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -38,6 +38,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * token生成器
  * @author /
  */
 @Slf4j
@@ -94,7 +95,7 @@ public class TokenProvider implements InitializingBean {
         return new UsernamePasswordAuthenticationToken(principal, token, new ArrayList<>());
     }
 
-    public Claims getClaims(String token) {
+    public io.jsonwebtoken.Claims getClaims(String token) {
         return jwtParser
                 .parseClaimsJws(token)
                 .getBody();

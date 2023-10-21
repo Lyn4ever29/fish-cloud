@@ -13,16 +13,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.lyn4ever.modules.security.config;
+package cn.lyn4ever.security.config;
 
 import cn.lyn4ever.annotation.AnonymousAccess;
-import cn.lyn4ever.modules.security.config.bean.SecurityProperties;
-import cn.lyn4ever.modules.security.security.JwtAccessDeniedHandler;
-import cn.lyn4ever.modules.security.security.JwtAuthenticationEntryPoint;
-import cn.lyn4ever.modules.security.security.TokenConfigurer;
-import cn.lyn4ever.modules.security.security.TokenProvider;
-import cn.lyn4ever.modules.security.service.OnlineUserService;
-import cn.lyn4ever.modules.security.service.UserCacheManager;
+import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.security.JwtAccessDeniedHandler;
+import cn.lyn4ever.security.security.JwtAuthenticationEntryPoint;
+import cn.lyn4ever.security.security.TokenConfigurer;
+import cn.lyn4ever.security.security.TokenProvider;
+import cn.lyn4ever.security.service.CloudUserDetailService;
 import cn.lyn4ever.utils.enums.RequestMethodEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
@@ -61,8 +60,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
     private final ApplicationContext applicationContext;
     private final SecurityProperties properties;
-    private final OnlineUserService onlineUserService;
-    private final UserCacheManager userCacheManager;
+    private final CloudUserDetailService cloudUserDetailService;
+
 
     @Bean
     GrantedAuthorityDefaults grantedAuthorityDefaults() {
@@ -83,6 +82,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         Map<RequestMappingInfo, HandlerMethod> handlerMethodMap = requestMappingHandlerMapping.getHandlerMethods();
         // 获取匿名标记
         Map<String, Set<String>> anonymousUrls = getAnonymousUrl(handlerMethodMap);
+        // 获取匿名url配置
+        String[] ignoreUrls = properties.getIgnoreUrls().stream().toArray(String[]::new);
         httpSecurity
                 // 禁用 CSRF
                 .csrf().disable()
@@ -116,13 +117,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/*/api-docs").permitAll()
-                // 文件
-                .antMatchers("/avatar/**").permitAll()
-                .antMatchers("/file/**").permitAll()
-                // 阿里巴巴 druid
-                .antMatchers("/druid/**").permitAll()
                 // 放行OPTIONS请求
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                //放行配置的url
+                .antMatchers(ignoreUrls).permitAll()
                 // 自定义匿名访问所有url放行：允许匿名和带Token访问，细腻化到每个 Request 类型
                 // GET
                 .antMatchers(HttpMethod.GET, anonymousUrls.get(RequestMethodEnum.GET.getType()).toArray(new String[0])).permitAll()
@@ -141,8 +139,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().apply(securityConfigurerAdapter());
     }
 
+
     private TokenConfigurer securityConfigurerAdapter() {
-        return new TokenConfigurer(tokenProvider, properties, onlineUserService, userCacheManager);
+        return new TokenConfigurer(tokenProvider, properties, cloudUserDetailService);
     }
 
     private Map<String, Set<String>> getAnonymousUrl(Map<RequestMappingInfo, HandlerMethod> handlerMethodMap) {

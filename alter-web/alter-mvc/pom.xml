@@ -24,22 +24,6 @@
         <!--            <artifactId>javax.inject</artifactId>-->
         <!--            <version>1</version>-->
         <!--        </dependency>-->
-        <!--mapStruct依赖-->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
-        </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.mapstruct</groupId>-->
-        <!--            <artifactId>mapstruct-processor</artifactId>-->
-        <!--            <version>${mapstruct.version}</version>-->
-        <!--            &lt;!&ndash;            <scope>provided</scope>&ndash;&gt;-->
-        <!--        </dependency>-->
+
     </dependencies>
 </project>

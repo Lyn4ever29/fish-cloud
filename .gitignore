@@ -4,4 +4,4 @@
 */target/*
 */*.iml
 /.gradle/
-*/target/
+**/target/*

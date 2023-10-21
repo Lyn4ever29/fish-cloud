@@ -13,11 +13,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.lyn4ever.modules.security.security;
+package cn.lyn4ever.security.security;
 
-import cn.lyn4ever.modules.security.config.bean.SecurityProperties;
-import cn.lyn4ever.modules.security.service.OnlineUserService;
-import cn.lyn4ever.modules.security.service.UserCacheManager;
+import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.service.CloudUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -32,12 +31,11 @@ public class TokenConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFi
 
     private final TokenProvider tokenProvider;
     private final SecurityProperties properties;
-    private final OnlineUserService onlineUserService;
-    private final UserCacheManager userCacheManager;
+    private final CloudUserDetailService cloudUserDetailService;
 
     @Override
     public void configure(HttpSecurity http) {
-        TokenFilter customFilter = new TokenFilter(tokenProvider, properties, onlineUserService, userCacheManager);
+        TokenFilter customFilter = new TokenFilter(tokenProvider, properties, cloudUserDetailService);
         http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }

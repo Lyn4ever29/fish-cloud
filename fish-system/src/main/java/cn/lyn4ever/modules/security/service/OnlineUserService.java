@@ -17,10 +17,10 @@ package cn.lyn4ever.modules.security.service;
 
 import cn.lyn4ever.config.PageResult;
 import cn.lyn4ever.config.PageUtil;
-import cn.lyn4ever.modules.security.config.bean.SecurityProperties;
-import cn.lyn4ever.modules.security.security.TokenProvider;
 import cn.lyn4ever.modules.security.service.dto.JwtUserDto;
 import cn.lyn4ever.modules.security.service.dto.OnlineUserDto;
+import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.security.TokenProvider;
 import cn.lyn4ever.utils.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

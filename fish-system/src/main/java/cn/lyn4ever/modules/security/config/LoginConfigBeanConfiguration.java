@@ -16,7 +16,6 @@
 package cn.lyn4ever.modules.security.config;
 
 import cn.lyn4ever.modules.security.config.bean.LoginProperties;
-import cn.lyn4ever.modules.security.config.bean.SecurityProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,17 +26,11 @@ import org.springframework.context.annotation.Configuration;
  * @date: 2020/6/10 19:04
  */
 @Configuration
-public class ConfigBeanConfiguration {
+public class LoginConfigBeanConfiguration {
 
     @Bean
     @ConfigurationProperties(prefix = "login")
     public LoginProperties loginProperties() {
         return new LoginProperties();
-    }
-
-    @Bean
-    @ConfigurationProperties(prefix = "jwt")
-    public SecurityProperties securityProperties() {
-        return new SecurityProperties();
     }
 }
