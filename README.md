@@ -1,4 +1,4 @@
-<h1 style="text-align: center">Fish-Cloud 后台管理系统</h1>
+<h1 style="text-align: center">Fish-Cloud 微服务快速系统</h1>
 <div style="text-align: center">
 
 [![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/elunez/eladmin/blob/master/LICENSE)
@@ -11,18 +11,18 @@
 
 项目来源于ELADMIN,作者将其改造成SpringCloud项目，原项目地址：[https://github.com/elunez/eladmin-mp](https://github.com/elunez/eladmin-mp)、[https://gitee.com/elunez/eladmin-mp](https://gitee.com/elunez/eladmin-mp)。
 
-**开发文档：**  [https://cloud.jhacker.cn](https://cloud.jhacker.cn)
+**开发文档：** (建设中)
 
-**体验地址：**  [https://cloud.jhacker.cn/demo](cloud.jhacker.cn/demo)
+**体验地址：**  (建设中)
 
-**账号密码：** `admin / 123456`
+
 
 ## 项目源码 ## 
 
-|        | 后端源码                              | 前端源码                                  |
-|--------|-----------------------------------|---------------------------------------|
-| github | https://github.com/elunez/eladmin | https://github.com/elunez/eladmin-web |
-| 码云     | https://gitee.com/elunez/eladmin  | https://gitee.com/elunez/eladmin-web  |
+|        | 后端源码                                         | 前端源码                                      |
+|--------|----------------------------------------------|-------------------------------------------|
+| github | https://github.com/Lyn4ever29/fish-cloud     | https://gitee.com/lyn4ever/fish-cloud     |
+| 码云     | https://github.com/Lyn4ever29/fish-cloud-web | https://gitee.com/lyn4ever/fish-cloud-web |
 
 ## 项目组件 ## 
 

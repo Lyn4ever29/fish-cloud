@@ -9,29 +9,21 @@
         <version>1.0.0</version>
     </parent>
 
-    <name>feign调用客户端</name>
-    <description>所有通过feign调用的客户端</description>
-    <artifactId>feign-clients</artifactId>
+    <modules>
+        <module>fish-common</module>
+        <module>fish-logging</module>
+        <module>fish-system</module>
+        <module>fish-generator</module>
+    </modules>
+
+    <packaging>pom</packaging>
+    <name>fish业务组件</name>
+    <artifactId>fish-modules</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <!--Open feign-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>

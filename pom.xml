@@ -10,15 +10,12 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>fish-common</module>
-        <module>fish-logging</module>
-        <module>fish-system</module>
-        <module>fish-generator</module>
         <module>alter-web</module>
         <module>alter-data</module>
         <module>cloud-gateway</module>
-        <module>cloud-module</module>
+        <module>cloud-modules</module>
         <module>feign-clients</module>
+        <module>fish-modules</module>
     </modules>
 
     <name>fish-cloud 后台管理系统</name>
