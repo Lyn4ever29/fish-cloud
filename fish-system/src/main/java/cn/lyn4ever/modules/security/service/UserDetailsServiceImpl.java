@@ -83,7 +83,7 @@ public class UserDetailsServiceImpl implements CloudUserDetailService {
      * @param token
      */
     @Override
-    public Object beforeTokenFresh(String token) {
+    public Object resolveUserByToken(String token) {
         OnlineUserDto onlineUserDto = null;
         boolean cleanUserCache = false;
         try {

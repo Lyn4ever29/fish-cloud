@@ -128,7 +128,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
     }
 
     /**
-     * 获取 @Service 的所有 bean 名称
+     * 获取 @Service 的所有 config 名称
      *
      * @return /
      */

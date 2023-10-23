@@ -14,5 +14,7 @@ public interface CloudUserDetailService extends UserDetailsService {
      *
      * @param token
      */
-    Object beforeTokenFresh(String token);
+    Object resolveUserByToken(String token);
+
+
 }

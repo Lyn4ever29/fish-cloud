@@ -96,7 +96,6 @@ jwt:
     - /file/**
     - /avatar/**
     - /druid/**
-    - /auth/**
 
 #是否允许生成代码，生产环境设置为false
 generator:

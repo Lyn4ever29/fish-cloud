@@ -2,44 +2,37 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>fish-cloud</artifactId>
         <groupId>cn.lyn4ever</groupId>
+        <artifactId>fish-cloud</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-    <properties>
-        <hutool.version>5.8.20</hutool.version>
-    </properties>
+    <name>feign调用客户端</name>
+    <description>所有通过feign调用的客户端</description>
+    <artifactId>feign-clients</artifactId>
 
-    <artifactId>fish-common</artifactId>
-    <name>公共模块</name>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
             <groupId>cn.lyn4ever</groupId>
-            <artifactId>feign-clients</artifactId>
+            <artifactId>cloud-feign</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
 </project>

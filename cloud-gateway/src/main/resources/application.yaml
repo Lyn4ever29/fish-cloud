@@ -10,9 +10,8 @@ spring:
       discovery:
         locator:
           enabled: true # 开启动态路由，也就是从微服务中获取服务名
-      filter:
-        strip-prefix:
-          enabled: true
+      default-filters:
+        - StripPrefix=1 # 去除路径中第一个前缀
       routes: # routes 说明内容是一个数组，- 就表示数组
         - id: system_admin   # 唯一id,随便起，但是不能重名
           uri: lb://system-admin  #lb意思是load balance 负载均衡，内部用的是ribbon
@@ -22,3 +21,4 @@ spring:
           uri: lb://system-log
           predicates:
             - Path=/log/**
+

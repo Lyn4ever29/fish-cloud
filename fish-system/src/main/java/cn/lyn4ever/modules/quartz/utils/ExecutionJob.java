@@ -60,7 +60,7 @@ public class ExecutionJob extends QuartzJobBean {
     public void executeInternal(JobExecutionContext context) {
         // 获取任务
         QuartzJob quartzJob = (QuartzJob) context.getMergedJobDataMap().get(QuartzJob.JOB_KEY);
-        // 获取spring bean
+        // 获取spring config
         QuartzLogRepository quartzLogRepository = SpringContextHolder.getBean(QuartzLogRepository.class);
         QuartzJobService quartzJobService = SpringContextHolder.getBean(QuartzJobService.class);
         RedisUtils redisUtils = SpringContextHolder.getBean(RedisUtils.class);

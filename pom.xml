@@ -18,6 +18,7 @@
         <module>alter-data</module>
         <module>cloud-gateway</module>
         <module>cloud-module</module>
+        <module>feign-clients</module>
     </modules>
 
     <name>fish-cloud 后台管理系统</name>

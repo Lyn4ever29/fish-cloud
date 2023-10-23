@@ -16,6 +16,7 @@
 package cn.lyn4ever.modules.security.rest;
 
 import cn.hutool.core.util.IdUtil;
+import cn.lyn4ever.annotation.AnonymousAccess;
 import cn.lyn4ever.annotation.Log;
 import cn.lyn4ever.annotation.rest.AnonymousGetMapping;
 import cn.lyn4ever.annotation.rest.AnonymousPostMapping;
@@ -92,15 +93,18 @@ public class AuthorizationController {
                 new UsernamePasswordAuthenticationToken(authUser.getUsername(), password);
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        // 生成令牌与第三方系统获取令牌方式
-        // UserDetails userDetails = userDetailsService.loadUserByUsername(userInfo.getUsername());
-        // Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-        // SecurityContextHolder.getContext().setAuthentication(authentication);
+//         生成令牌与第三方系统获取令牌方式
+//         UserDetails userDetails = userDetailsService.loadUserByUsername(userInfo.getUsername());
+//         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+//         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = tokenProvider.createToken(authentication);
+        String bearToken = properties.getTokenStartWith() + token;
+        //将token保存在request中
+        request.setAttribute("loginToken", bearToken);
         final JwtUserDto jwtUserDto = (JwtUserDto) authentication.getPrincipal();
         // 返回 token 与 用户信息
         Map<String, Object> authInfo = new HashMap<String, Object>(2) {{
-            put("token", properties.getTokenStartWith() + token);
+            put("token", bearToken);
             put("user", jwtUserDto);
         }};
         if (loginProperties.isSingleLogin()) {
@@ -142,6 +146,7 @@ public class AuthorizationController {
 
     @ApiOperation("退出登录")
     @DeleteMapping(value = "/logout")
+    @AnonymousAccess
     public ResponseEntity<Object> logout(HttpServletRequest request) {
         onlineUserService.logout(tokenProvider.getToken(request));
         return new ResponseEntity<>(HttpStatus.OK);

@@ -62,12 +62,16 @@ public class TokenFilter extends GenericFilterBean {
         // 对于 Token 为空的不需要去查 Redis
         if (StrUtil.isNotBlank(token)) {
 
-            Object user = cloudUserDetailService.beforeTokenFresh(token);
+            Object user = cloudUserDetailService.resolveUserByToken(token);
             if (user != null && StringUtils.hasText(token)) {
+                //将当前用户授权放入securityContextHolder中
                 Authentication authentication = tokenProvider.getAuthentication(token);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 // Token 续期
                 tokenProvider.checkRenewal(token);
+            } else {
+                //当前token不包含用户信息
+                throw new RuntimeException("Token 无效");
             }
         }
         filterChain.doFilter(servletRequest, servletResponse);
