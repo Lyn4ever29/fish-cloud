@@ -16,22 +16,22 @@
 package cn.lyn4ever.modules.security.rest;
 
 import cn.hutool.core.util.IdUtil;
-import cn.lyn4ever.annotation.AnonymousAccess;
 import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.annotation.rest.AnonymousGetMapping;
-import cn.lyn4ever.annotation.rest.AnonymousPostMapping;
 import cn.lyn4ever.config.RsaProperties;
-import cn.lyn4ever.exception.BadRequestException;
 import cn.lyn4ever.modules.security.config.bean.LoginCodeEnum;
 import cn.lyn4ever.modules.security.config.bean.LoginProperties;
 import cn.lyn4ever.modules.security.service.OnlineUserService;
 import cn.lyn4ever.modules.security.service.dto.AuthUserDto;
 import cn.lyn4ever.modules.security.service.dto.JwtUserDto;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.redis.utils.RedisUtils;
+import cn.lyn4ever.security.annotation.AnonymousAccess;
+import cn.lyn4ever.security.annotation.rest.AnonymousGetMapping;
+import cn.lyn4ever.security.annotation.rest.AnonymousPostMapping;
 import cn.lyn4ever.security.config.bean.SecurityProperties;
-import cn.lyn4ever.security.security.TokenProvider;
-import cn.lyn4ever.utils.RedisUtils;
+import cn.lyn4ever.security.jwt.TokenProvider;
+import cn.lyn4ever.security.utils.SecurityUtils;
 import cn.lyn4ever.utils.RsaUtils;
-import cn.lyn4ever.utils.SecurityUtils;
 import cn.lyn4ever.utils.StringUtils;
 import com.wf.captcha.base.Captcha;
 import io.swagger.annotations.Api;
@@ -102,7 +102,7 @@ public class AuthorizationController {
         //将token保存在request中
         request.setAttribute("loginToken", bearToken);
         final JwtUserDto jwtUserDto = (JwtUserDto) authentication.getPrincipal();
-        // 返回 token 与 用户信息
+        // 返回 jwt 与 用户信息
         Map<String, Object> authInfo = new HashMap<String, Object>(2) {{
             put("token", bearToken);
             put("user", jwtUserDto);

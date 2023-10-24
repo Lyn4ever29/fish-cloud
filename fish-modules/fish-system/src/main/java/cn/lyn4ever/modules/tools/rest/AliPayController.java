@@ -15,14 +15,14 @@
  */
 package cn.lyn4ever.modules.tools.rest;
 
-import cn.lyn4ever.annotation.AnonymousAccess;
 import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.annotation.rest.AnonymousGetMapping;
 import cn.lyn4ever.modules.tools.domain.AlipayConfig;
 import cn.lyn4ever.modules.tools.domain.vo.TradeVo;
 import cn.lyn4ever.modules.tools.service.AliPayService;
 import cn.lyn4ever.modules.tools.utils.AliPayStatusEnum;
 import cn.lyn4ever.modules.tools.utils.AlipayUtils;
+import cn.lyn4ever.security.annotation.AnonymousAccess;
+import cn.lyn4ever.security.annotation.rest.AnonymousGetMapping;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

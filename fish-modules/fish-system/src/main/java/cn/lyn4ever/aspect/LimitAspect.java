@@ -17,8 +17,8 @@ package cn.lyn4ever.aspect;
 
 import cn.lyn4ever.annotation.Limit;
 import cn.lyn4ever.enums.LimitType;
-import cn.lyn4ever.exception.BadRequestException;
-import cn.lyn4ever.utils.RequestHolder;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.mvc.utils.RequestHolder;
 import cn.lyn4ever.utils.RequestUtil;
 import cn.lyn4ever.utils.StringUtils;
 import com.google.common.collect.ImmutableList;

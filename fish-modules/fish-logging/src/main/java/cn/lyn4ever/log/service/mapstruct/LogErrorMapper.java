@@ -15,9 +15,9 @@
  */
 package cn.lyn4ever.log.service.mapstruct;
 
-import cn.lyn4ever.base.BaseMapper;
 import cn.lyn4ever.log.domain.SysLog;
 import cn.lyn4ever.log.service.dto.SysLogErrorDto;
+import cn.lyn4ever.mvc.base.BaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

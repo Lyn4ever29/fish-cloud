@@ -54,7 +54,7 @@
 
         <!--        <dependency>-->
         <!--            <groupId>cn.lyn4everr</groupId>-->
-        <!--            <artifactId>alter-security</artifactId>-->
+        <!--            <artifactId>alter-jwt</artifactId>-->
         <!--            <version>1.0.0</version>-->
         <!--            <scope>compile</scope>-->
         <!--        </dependency>-->

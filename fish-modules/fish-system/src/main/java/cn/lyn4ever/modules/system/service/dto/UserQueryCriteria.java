@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.system.service.dto;
 
-import cn.lyn4ever.annotation.Query;
+import cn.lyn4ever.jpa.annotation.Query;
 import lombok.Data;
 
 import java.io.Serializable;

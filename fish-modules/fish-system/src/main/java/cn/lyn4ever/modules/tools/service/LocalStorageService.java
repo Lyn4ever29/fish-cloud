@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.tools.service;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.tools.domain.LocalStorage;
 import cn.lyn4ever.modules.tools.service.dto.LocalStorageDto;
 import cn.lyn4ever.modules.tools.service.dto.LocalStorageQueryCriteria;

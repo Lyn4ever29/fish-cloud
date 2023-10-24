@@ -15,9 +15,9 @@
  */
 package cn.lyn4ever.modules.tools.service.mapstruct;
 
-import cn.lyn4ever.base.BaseMapper;
 import cn.lyn4ever.modules.tools.domain.LocalStorage;
 import cn.lyn4ever.modules.tools.service.dto.LocalStorageDto;
+import cn.lyn4ever.mvc.base.BaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

@@ -16,7 +16,7 @@
 package cn.lyn4ever.modules.mnt.rest;
 
 import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.mnt.domain.App;
 import cn.lyn4ever.modules.mnt.service.AppService;
 import cn.lyn4ever.modules.mnt.service.dto.AppDto;

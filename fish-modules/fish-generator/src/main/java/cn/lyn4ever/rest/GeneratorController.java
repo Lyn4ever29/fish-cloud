@@ -15,11 +15,11 @@
  */
 package cn.lyn4ever.rest;
 
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.config.PageUtil;
 import cn.lyn4ever.domain.ColumnInfo;
 import cn.lyn4ever.domain.vo.TableInfo;
-import cn.lyn4ever.exception.BadRequestException;
+import cn.lyn4ever.jpa.config.PageResult;
+import cn.lyn4ever.jpa.config.PageUtil;
+import cn.lyn4ever.mvc.exception.BadRequestException;
 import cn.lyn4ever.service.GenConfigService;
 import cn.lyn4ever.service.GeneratorService;
 import io.swagger.annotations.Api;

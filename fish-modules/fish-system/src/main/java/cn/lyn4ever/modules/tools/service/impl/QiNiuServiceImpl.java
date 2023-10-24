@@ -15,10 +15,9 @@
  */
 package cn.lyn4ever.modules.tools.service.impl;
 
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.config.PageUtil;
-import cn.lyn4ever.config.QueryHelp;
-import cn.lyn4ever.exception.BadRequestException;
+import cn.lyn4ever.jpa.config.PageResult;
+import cn.lyn4ever.jpa.config.PageUtil;
+import cn.lyn4ever.jpa.config.QueryHelp;
 import cn.lyn4ever.modules.tools.domain.QiniuConfig;
 import cn.lyn4ever.modules.tools.domain.QiniuContent;
 import cn.lyn4ever.modules.tools.repository.QiNiuConfigRepository;
@@ -26,8 +25,9 @@ import cn.lyn4ever.modules.tools.repository.QiniuContentRepository;
 import cn.lyn4ever.modules.tools.service.QiNiuService;
 import cn.lyn4ever.modules.tools.service.dto.QiniuQueryCriteria;
 import cn.lyn4ever.modules.tools.utils.QiNiuUtil;
-import cn.lyn4ever.utils.FileUtil;
-import cn.lyn4ever.utils.ValidationUtil;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.mvc.utils.FileUtil;
+import cn.lyn4ever.mvc.utils.ValidationUtil;
 import com.alibaba.fastjson.JSON;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;

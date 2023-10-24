@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.system.service;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.system.domain.DictDetail;
 import cn.lyn4ever.modules.system.service.dto.DictDetailDto;
 import cn.lyn4ever.modules.system.service.dto.DictDetailQueryCriteria;

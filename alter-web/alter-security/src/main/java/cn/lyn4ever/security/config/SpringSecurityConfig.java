@@ -15,12 +15,12 @@
  */
 package cn.lyn4ever.security.config;
 
-import cn.lyn4ever.annotation.AnonymousAccess;
+import cn.lyn4ever.security.annotation.AnonymousAccess;
 import cn.lyn4ever.security.config.bean.SecurityProperties;
-import cn.lyn4ever.security.security.JwtAccessDeniedHandler;
-import cn.lyn4ever.security.security.JwtAuthenticationEntryPoint;
-import cn.lyn4ever.security.security.TokenConfigurer;
-import cn.lyn4ever.security.security.TokenProvider;
+import cn.lyn4ever.security.jwt.JwtAccessDeniedHandler;
+import cn.lyn4ever.security.jwt.JwtAuthenticationEntryPoint;
+import cn.lyn4ever.security.jwt.TokenConfigurer;
+import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.service.CloudUserDetailService;
 import cn.lyn4ever.utils.enums.RequestMethodEnum;
 import lombok.RequiredArgsConstructor;

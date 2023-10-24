@@ -16,7 +16,7 @@
 package cn.lyn4ever.modules.mnt.rest;
 
 import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.mnt.service.DeployHistoryService;
 import cn.lyn4ever.modules.mnt.service.dto.DeployHistoryDto;
 import cn.lyn4ever.modules.mnt.service.dto.DeployHistoryQueryCriteria;

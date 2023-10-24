@@ -15,8 +15,8 @@
  */
 package cn.lyn4ever.clients.log;
 
-import cn.lyn4ever.clients.log.config.AuthorizationRequestInterceptor;
-import cn.lyn4ever.clients.log.vo.SysLogClientVo;
+import cn.lyn4ever.clients.config.AuthorizationRequestInterceptor;
+import cn.lyn4ever.clients.log.dto.SysLogClientDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +36,6 @@ public interface SysLogClientService {
      * @return
      */
     @PostMapping("/api/logs/saveLog")
-    public String saveLog(@RequestBody SysLogClientVo sysLog);
+    public String saveLog(@RequestBody SysLogClientDto sysLog);
 
 }

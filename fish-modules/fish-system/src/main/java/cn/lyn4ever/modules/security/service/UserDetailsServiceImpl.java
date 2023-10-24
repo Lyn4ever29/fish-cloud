@@ -15,14 +15,14 @@
  */
 package cn.lyn4ever.modules.security.service;
 
-import cn.lyn4ever.exception.BadRequestException;
 import cn.lyn4ever.modules.security.service.dto.JwtUserDto;
 import cn.lyn4ever.modules.security.service.dto.OnlineUserDto;
 import cn.lyn4ever.modules.system.service.DataService;
 import cn.lyn4ever.modules.system.service.RoleService;
 import cn.lyn4ever.modules.system.service.UserService;
 import cn.lyn4ever.modules.system.service.dto.UserLoginDto;
-import cn.lyn4ever.security.security.TokenProvider;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.service.CloudUserDetailService;
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.RequiredArgsConstructor;
@@ -83,7 +83,7 @@ public class UserDetailsServiceImpl implements CloudUserDetailService {
      * @param token
      */
     @Override
-    public Object resolveUserByToken(String token) {
+    public OnlineUserDto resolveUserByToken(String token) {
         OnlineUserDto onlineUserDto = null;
         boolean cleanUserCache = false;
         try {

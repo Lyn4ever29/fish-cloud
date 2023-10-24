@@ -19,6 +19,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.*;
 import cn.lyn4ever.domain.ColumnInfo;
 import cn.lyn4ever.domain.GenConfig;
+import cn.lyn4ever.mvc.utils.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 
@@ -32,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static cn.lyn4ever.utils.FileUtil.SYS_TEM_DIR;
+import static cn.lyn4ever.mvc.utils.FileUtil.SYS_TEM_DIR;
 
 /**
  * 代码生成

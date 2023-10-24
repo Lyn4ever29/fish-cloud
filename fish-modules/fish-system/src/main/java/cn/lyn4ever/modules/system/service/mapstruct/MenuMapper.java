@@ -15,9 +15,9 @@
  */
 package cn.lyn4ever.modules.system.service.mapstruct;
 
-import cn.lyn4ever.base.BaseMapper;
 import cn.lyn4ever.modules.system.domain.Menu;
 import cn.lyn4ever.modules.system.service.dto.MenuDto;
+import cn.lyn4ever.mvc.base.BaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

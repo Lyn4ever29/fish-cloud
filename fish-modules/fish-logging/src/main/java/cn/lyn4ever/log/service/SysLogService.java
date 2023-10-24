@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.log.service;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.log.domain.SysLog;
 import cn.lyn4ever.log.service.dto.SysLogQueryCriteria;
 import cn.lyn4ever.log.service.dto.SysLogSmallDto;

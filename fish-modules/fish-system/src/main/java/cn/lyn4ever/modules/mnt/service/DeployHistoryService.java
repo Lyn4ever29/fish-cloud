@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.mnt.service;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.mnt.domain.DeployHistory;
 import cn.lyn4ever.modules.mnt.service.dto.DeployHistoryDto;
 import cn.lyn4ever.modules.mnt.service.dto.DeployHistoryQueryCriteria;

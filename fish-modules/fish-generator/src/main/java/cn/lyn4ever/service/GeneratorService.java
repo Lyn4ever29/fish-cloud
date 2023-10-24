@@ -15,10 +15,10 @@
  */
 package cn.lyn4ever.service;
 
-import cn.lyn4ever.config.PageResult;
 import cn.lyn4ever.domain.ColumnInfo;
 import cn.lyn4ever.domain.GenConfig;
 import cn.lyn4ever.domain.vo.TableInfo;
+import cn.lyn4ever.jpa.config.PageResult;
 import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;

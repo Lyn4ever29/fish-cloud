@@ -15,11 +15,10 @@
  */
 package cn.lyn4ever.modules.system.service.impl;
 
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.config.PageUtil;
-import cn.lyn4ever.config.QueryHelp;
-import cn.lyn4ever.exception.BadRequestException;
 import cn.lyn4ever.exception.EntityExistException;
+import cn.lyn4ever.jpa.config.PageResult;
+import cn.lyn4ever.jpa.config.PageUtil;
+import cn.lyn4ever.jpa.config.QueryHelp;
 import cn.lyn4ever.modules.system.domain.Job;
 import cn.lyn4ever.modules.system.repository.JobRepository;
 import cn.lyn4ever.modules.system.repository.UserRepository;
@@ -27,10 +26,11 @@ import cn.lyn4ever.modules.system.service.JobService;
 import cn.lyn4ever.modules.system.service.dto.JobDto;
 import cn.lyn4ever.modules.system.service.dto.JobQueryCriteria;
 import cn.lyn4ever.modules.system.service.mapstruct.JobMapper;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.mvc.utils.FileUtil;
+import cn.lyn4ever.mvc.utils.ValidationUtil;
+import cn.lyn4ever.redis.utils.RedisUtils;
 import cn.lyn4ever.utils.CacheKey;
-import cn.lyn4ever.utils.FileUtil;
-import cn.lyn4ever.utils.RedisUtils;
-import cn.lyn4ever.utils.ValidationUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;

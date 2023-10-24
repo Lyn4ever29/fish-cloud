@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.config;
 
-import cn.lyn4ever.utils.SecurityUtils;
+import cn.lyn4ever.security.utils.SecurityUtils;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 

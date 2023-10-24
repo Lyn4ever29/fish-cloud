@@ -80,12 +80,12 @@
             <groupId>cn.lyn4ever</groupId>
             <artifactId>fish-common</artifactId>
             <version>1.0.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>cn.lyn4ever</groupId>
-                    <artifactId>feign-clients</artifactId>
-                </exclusion>
-            </exclusions>
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>cn.lyn4ever</groupId>-->
+            <!--                    <artifactId>feign-clients</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>

@@ -15,9 +15,9 @@
  */
 package cn.lyn4ever.modules.mnt.service.mapstruct;
 
-import cn.lyn4ever.base.BaseMapper;
 import cn.lyn4ever.modules.mnt.domain.Deploy;
 import cn.lyn4ever.modules.mnt.service.dto.DeployDto;
+import cn.lyn4ever.mvc.base.BaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

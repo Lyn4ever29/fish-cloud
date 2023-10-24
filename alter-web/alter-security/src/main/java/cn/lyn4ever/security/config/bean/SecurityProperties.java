@@ -59,7 +59,7 @@ public class SecurityProperties {
     private String codeKey;
 
     /**
-     * token 续期检查
+     * jwt 续期检查
      */
     private Long detect;
 

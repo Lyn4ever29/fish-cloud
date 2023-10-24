@@ -16,11 +16,10 @@
 package cn.lyn4ever.modules.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.config.PageUtil;
-import cn.lyn4ever.config.QueryHelp;
-import cn.lyn4ever.exception.BadRequestException;
 import cn.lyn4ever.exception.EntityExistException;
+import cn.lyn4ever.jpa.config.PageResult;
+import cn.lyn4ever.jpa.config.PageUtil;
+import cn.lyn4ever.jpa.config.QueryHelp;
 import cn.lyn4ever.modules.security.service.UserCacheManager;
 import cn.lyn4ever.modules.security.service.dto.AuthorityDto;
 import cn.lyn4ever.modules.system.domain.Menu;
@@ -35,7 +34,12 @@ import cn.lyn4ever.modules.system.service.dto.RoleSmallDto;
 import cn.lyn4ever.modules.system.service.dto.UserDto;
 import cn.lyn4ever.modules.system.service.mapstruct.RoleMapper;
 import cn.lyn4ever.modules.system.service.mapstruct.RoleSmallMapper;
-import cn.lyn4ever.utils.*;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.mvc.utils.FileUtil;
+import cn.lyn4ever.mvc.utils.ValidationUtil;
+import cn.lyn4ever.redis.utils.RedisUtils;
+import cn.lyn4ever.utils.CacheKey;
+import cn.lyn4ever.utils.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;

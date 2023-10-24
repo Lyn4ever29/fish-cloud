@@ -17,7 +17,7 @@ package cn.lyn4ever.aspect;
 
 import cn.lyn4ever.annotation.Log;
 import cn.lyn4ever.clients.log.SysLogClientService;
-import cn.lyn4ever.clients.log.vo.SysLogClientVo;
+import cn.lyn4ever.clients.log.dto.SysLogClientDto;
 import cn.lyn4ever.utils.RequestUtil;
 import cn.lyn4ever.utils.StringUtils;
 import cn.lyn4ever.utils.ThrowableUtil;
@@ -76,7 +76,7 @@ public class LogAspect {
         Object result;
         currentTime.set(System.currentTimeMillis());
         result = joinPoint.proceed();
-        SysLogClientVo sysLog = new SysLogClientVo("INFO", System.currentTimeMillis() - currentTime.get());
+        SysLogClientDto sysLog = new SysLogClientDto("INFO", System.currentTimeMillis() - currentTime.get());
         currentTime.remove();
 
         //获取基本参数
@@ -88,7 +88,7 @@ public class LogAspect {
         return result;
     }
 
-    private void getMethodBaseInfo(ProceedingJoinPoint joinPoint, SysLogClientVo sysLog) {
+    private void getMethodBaseInfo(ProceedingJoinPoint joinPoint, SysLogClientDto sysLog) {
         HttpServletRequest request = WebUtil.getRequest();
         sysLog.setRequestIp(RequestUtil.getIp(request));
         sysLog.setBrowser(RequestUtil.getIp(request));
@@ -113,7 +113,7 @@ public class LogAspect {
      */
     @AfterThrowing(pointcut = "logPointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
-        SysLogClientVo sysLog = new SysLogClientVo("ERROR", System.currentTimeMillis() - currentTime.get());
+        SysLogClientDto sysLog = new SysLogClientDto("ERROR", System.currentTimeMillis() - currentTime.get());
         currentTime.remove();
         sysLog.setExceptionDetail(ThrowableUtil.getStackTrace(e).getBytes());
         HttpServletRequest request = WebUtil.getRequest();

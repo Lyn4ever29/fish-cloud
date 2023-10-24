@@ -15,11 +15,11 @@
  */
 package cn.lyn4ever.modules.tools.service.impl;
 
-import cn.lyn4ever.exception.BadRequestException;
 import cn.lyn4ever.modules.tools.domain.AlipayConfig;
 import cn.lyn4ever.modules.tools.domain.vo.TradeVo;
 import cn.lyn4ever.modules.tools.repository.AliPayRepository;
 import cn.lyn4ever.modules.tools.service.AliPayService;
+import cn.lyn4ever.mvc.exception.BadRequestException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;

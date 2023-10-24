@@ -16,7 +16,7 @@
 package cn.lyn4ever.modules.system.rest;
 
 import cn.lyn4ever.annotation.Limit;
-import cn.lyn4ever.annotation.rest.AnonymousGetMapping;
+import cn.lyn4ever.security.annotation.rest.AnonymousGetMapping;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -16,9 +16,9 @@
 package cn.lyn4ever.modules.mnt.service.impl;
 
 import cn.hutool.core.util.IdUtil;
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.config.PageUtil;
-import cn.lyn4ever.config.QueryHelp;
+import cn.lyn4ever.jpa.config.PageResult;
+import cn.lyn4ever.jpa.config.PageUtil;
+import cn.lyn4ever.jpa.config.QueryHelp;
 import cn.lyn4ever.modules.mnt.domain.Database;
 import cn.lyn4ever.modules.mnt.repository.DatabaseRepository;
 import cn.lyn4ever.modules.mnt.service.DatabaseService;
@@ -26,8 +26,8 @@ import cn.lyn4ever.modules.mnt.service.dto.DatabaseDto;
 import cn.lyn4ever.modules.mnt.service.dto.DatabaseQueryCriteria;
 import cn.lyn4ever.modules.mnt.service.mapstruct.DatabaseMapper;
 import cn.lyn4ever.modules.mnt.util.SqlUtils;
-import cn.lyn4ever.utils.FileUtil;
-import cn.lyn4ever.utils.ValidationUtil;
+import cn.lyn4ever.mvc.utils.FileUtil;
+import cn.lyn4ever.mvc.utils.ValidationUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

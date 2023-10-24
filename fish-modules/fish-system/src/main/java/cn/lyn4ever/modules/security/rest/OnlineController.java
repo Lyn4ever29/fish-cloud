@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.security.rest;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.security.service.OnlineUserService;
 import cn.lyn4ever.modules.security.service.dto.OnlineUserDto;
 import cn.lyn4ever.utils.EncryptUtils;

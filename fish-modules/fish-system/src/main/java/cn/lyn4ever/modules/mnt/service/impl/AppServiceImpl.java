@@ -15,18 +15,18 @@
  */
 package cn.lyn4ever.modules.mnt.service.impl;
 
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.config.PageUtil;
-import cn.lyn4ever.config.QueryHelp;
-import cn.lyn4ever.exception.BadRequestException;
+import cn.lyn4ever.jpa.config.PageResult;
+import cn.lyn4ever.jpa.config.PageUtil;
+import cn.lyn4ever.jpa.config.QueryHelp;
 import cn.lyn4ever.modules.mnt.domain.App;
 import cn.lyn4ever.modules.mnt.repository.AppRepository;
 import cn.lyn4ever.modules.mnt.service.AppService;
 import cn.lyn4ever.modules.mnt.service.dto.AppDto;
 import cn.lyn4ever.modules.mnt.service.dto.AppQueryCriteria;
 import cn.lyn4ever.modules.mnt.service.mapstruct.AppMapper;
-import cn.lyn4ever.utils.FileUtil;
-import cn.lyn4ever.utils.ValidationUtil;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.mvc.utils.FileUtil;
+import cn.lyn4ever.mvc.utils.ValidationUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

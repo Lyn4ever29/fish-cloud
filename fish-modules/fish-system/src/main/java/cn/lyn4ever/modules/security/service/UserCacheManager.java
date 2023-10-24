@@ -18,7 +18,7 @@ package cn.lyn4ever.modules.security.service;
 import cn.hutool.core.util.RandomUtil;
 import cn.lyn4ever.modules.security.config.bean.LoginProperties;
 import cn.lyn4ever.modules.security.service.dto.JwtUserDto;
-import cn.lyn4ever.utils.RedisUtils;
+import cn.lyn4ever.redis.utils.RedisUtils;
 import cn.lyn4ever.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;

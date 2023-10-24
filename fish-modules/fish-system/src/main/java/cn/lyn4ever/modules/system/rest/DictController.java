@@ -16,12 +16,12 @@
 package cn.lyn4ever.modules.system.rest;
 
 import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.exception.BadRequestException;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.system.domain.Dict;
 import cn.lyn4ever.modules.system.service.DictService;
 import cn.lyn4ever.modules.system.service.dto.DictDto;
 import cn.lyn4ever.modules.system.service.dto.DictQueryCriteria;
+import cn.lyn4ever.mvc.exception.BadRequestException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

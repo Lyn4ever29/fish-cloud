@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.mnt.service;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.mnt.domain.Database;
 import cn.lyn4ever.modules.mnt.service.dto.DatabaseDto;
 import cn.lyn4ever.modules.mnt.service.dto.DatabaseQueryCriteria;

@@ -15,8 +15,8 @@
  */
 package cn.lyn4ever.modules.quartz.utils;
 
-import cn.lyn4ever.exception.BadRequestException;
 import cn.lyn4ever.modules.quartz.domain.QuartzJob;
+import cn.lyn4ever.mvc.exception.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.triggers.CronTriggerImpl;

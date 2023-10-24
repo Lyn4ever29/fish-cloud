@@ -25,6 +25,12 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.lyn4ever</groupId>
+            <artifactId>alter-mvc</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <!-- jwt -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

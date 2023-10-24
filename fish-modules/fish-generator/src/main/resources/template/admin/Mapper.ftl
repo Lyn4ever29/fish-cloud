@@ -15,7 +15,7 @@
 */
 package ${package}.service.mapstruct;
 
-import cn.lyn4ever.base.BaseMapper;
+import cn.lyn4ever.mvc.base.BaseMapper;
 import ${package}.domain.${className};
 import ${package}.service.dto.${className}Dto;
 import org.mapstruct.Mapper;

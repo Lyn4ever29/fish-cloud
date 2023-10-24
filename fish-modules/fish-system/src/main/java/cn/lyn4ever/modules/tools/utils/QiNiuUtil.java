@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.tools.utils;
 
-import cn.lyn4ever.utils.FileUtil;
+import cn.lyn4ever.mvc.utils.FileUtil;
 import com.qiniu.storage.Region;
 
 import java.text.SimpleDateFormat;

@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.List;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 
 /**
 * @website https://eladmin.vip

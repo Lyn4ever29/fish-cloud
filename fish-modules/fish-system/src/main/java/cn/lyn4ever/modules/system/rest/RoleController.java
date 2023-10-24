@@ -17,14 +17,14 @@ package cn.lyn4ever.modules.system.rest;
 
 import cn.hutool.core.lang.Dict;
 import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.config.PageResult;
-import cn.lyn4ever.exception.BadRequestException;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.system.domain.Role;
 import cn.lyn4ever.modules.system.service.RoleService;
 import cn.lyn4ever.modules.system.service.dto.RoleDto;
 import cn.lyn4ever.modules.system.service.dto.RoleQueryCriteria;
 import cn.lyn4ever.modules.system.service.dto.RoleSmallDto;
-import cn.lyn4ever.utils.SecurityUtils;
+import cn.lyn4ever.mvc.exception.BadRequestException;
+import cn.lyn4ever.security.utils.SecurityUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

@@ -62,7 +62,7 @@ public class OnlineUserDto {
     private String address;
 
     /**
-     * token
+     * jwt
      */
     private String key;
 

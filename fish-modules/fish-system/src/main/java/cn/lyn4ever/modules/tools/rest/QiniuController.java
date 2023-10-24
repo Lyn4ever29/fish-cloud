@@ -16,7 +16,7 @@
 package cn.lyn4ever.modules.tools.rest;
 
 import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.tools.domain.QiniuConfig;
 import cn.lyn4ever.modules.tools.domain.QiniuContent;
 import cn.lyn4ever.modules.tools.service.QiNiuService;

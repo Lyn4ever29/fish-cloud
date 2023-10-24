@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.security.config.bean;
 
-import cn.lyn4ever.exception.BadConfigurationException;
+import cn.lyn4ever.mvc.exception.BadConfigurationException;
 import cn.lyn4ever.utils.StringUtils;
 import com.wf.captcha.*;
 import com.wf.captcha.base.Captcha;

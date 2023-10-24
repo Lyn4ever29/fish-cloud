@@ -25,7 +25,7 @@ import cn.lyn4ever.modules.quartz.repository.QuartzLogRepository;
 import cn.lyn4ever.modules.quartz.service.QuartzJobService;
 import cn.lyn4ever.modules.tools.domain.vo.EmailVo;
 import cn.lyn4ever.modules.tools.service.EmailService;
-import cn.lyn4ever.utils.RedisUtils;
+import cn.lyn4ever.redis.utils.RedisUtils;
 import cn.lyn4ever.utils.SpringContextHolder;
 import cn.lyn4ever.utils.StringUtils;
 import cn.lyn4ever.utils.ThrowableUtil;

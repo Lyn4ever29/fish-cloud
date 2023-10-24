@@ -10,7 +10,7 @@ public interface CloudUserDetailService extends UserDetailsService {
 
 
     /**
-     * token刷新前处理
+     * 从token中解析用户信息
      *
      * @param token
      */

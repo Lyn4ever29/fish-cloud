@@ -25,8 +25,8 @@ import ${package}.domain.${className};
         </#if>
     </#list>
 </#if>
-import cn.lyn4ever.utils.ValidationUtil;
-import cn.lyn4ever.utils.FileUtil;
+import cn.lyn4ever.mvc.utils.ValidationUtil;
+import cn.lyn4ever.mvc.utils.FileUtil;
 import lombok.RequiredArgsConstructor;
 import ${package}.repository.${className}Repository;
 import ${package}.service.${className}Service;
@@ -44,15 +44,15 @@ import org.springframework.transaction.annotation.Transactional;
 </#if>
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import cn.lyn4ever.config.PageUtil;
-import cn.lyn4ever.config.QueryHelp;
+import cn.lyn4ever.jpa.config.PageUtil;
+import cn.lyn4ever.jpa.config.QueryHelp;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 
 /**
 * @website https://eladmin.vip

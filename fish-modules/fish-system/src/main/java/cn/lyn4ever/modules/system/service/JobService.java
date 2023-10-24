@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.system.service;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.system.domain.Job;
 import cn.lyn4ever.modules.system.service.dto.JobDto;
 import cn.lyn4ever.modules.system.service.dto.JobQueryCriteria;

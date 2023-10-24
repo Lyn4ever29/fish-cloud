@@ -36,19 +36,13 @@
 
 ## 主要特性 ##
 
-- 使用最新技术栈，社区资源丰富。
-- 高效率开发，代码生成器可一键生成前后端代码
-- 支持数据字典，可方便地对一些状态进行管理
-- 支持接口限流，避免恶意请求导致服务层压力过大
-- 支持接口级别的功能权限与数据权限，可自定义操作
-- 自定义权限注解与匿名接口注解，可快速对接口拦截与放行
-- 对一些常用地前端组件封装：表格数据请求、数据字典等
-- 前后端统一异常拦截处理，统一输出异常，避免繁琐的判断
-- 支持在线用户管理与服务器性能监控，支持限制单用户登录
-- 支持运维管理，可方便地对远程服务器的应用进行部署与管理
+- 主流框架：包含SpringCloud开发的主流组件：Nacos、Gateway等
+- 快速上手: 项目简洁，上手块，无需过多配置，即可使用。
+- 极简开发: 尽可能的减少造轮子，组件最小化，模块化引入。
 
 ## 系统功能 ##
 
+> 以下文档来自eladmin原作者
 - 用户管理：提供用户的相关配置，新增用户后，默认密码为123456
 - 角色管理：对权限与菜单进行分配，可根据部门设置角色的数据权限
 - 菜单管理：已实现菜单动态路由，后端可配置化，支持多级菜单
@@ -65,42 +59,44 @@
 - 服务监控：监控服务器的负载情况
 - 运维管理：一键部署你的应用
 
-## 项目结构 ##
+## 模块分类
 
-项目采用按功能分模块的开发方式，结构如下
+本项目模块共分为四类：
 
-- `fish-common` 为系统的公共模块，各种工具类，公共配置存在该模块
+- **cloud类**：包含Nacos、GateWay等SpringCloud基础组件，必选。
+- **fish类**：业务类组件，可选。
+- **alter类**：包含web、Security、JPA、Mybatis、MySQL等基础组件，可自由组合。
+- **feign-clients**：可选组件，feign远程调用的客户端模块，主要是一些远程接口定义。
 
-- `fish-system` 为系统核心模块也是项目入口模块，也是最终需要打包部署的模块
+## 模块结构
 
-- `eladmin-logging` 为系统的日志模块，其他模块如果需要记录日志需要引入该模块
-
-- `fish-tools` 为第三方工具模块，包含：邮件、七牛云存储、本地存储、支付宝
-
-- `fish-generator` 为系统的代码生成模块，支持生成前后端CRUD代码
-
-## 详细结构 ##
-
+以下是模块对应的文件夹：
 ```
-- fish-common 公共模块
-    - annotation 为系统自定义注解
-    - aspect 自定义注解的切面
-    - base 提供了Entity、DTO基类和mapstruct的通用mapper
-    - config 自定义权限实现、redis配置、swagger配置、Rsa配置等
-    - exception 项目统一异常的处理
-    - utils 系统通用工具类
-- fish-system 系统核心模块（系统启动入口）
-	- config 配置跨域与静态资源，与数据权限
-	    - thread 线程池相关
-	- modules 系统相关模块(登录授权、系统监控、定时任务、运维管理等)
-- eladmin-logging 系统日志模块
-- fish-tools 系统第三方工具模块
-- fish-generator 系统代码生成模块
+├── alter-data (可选的数据相关组件)
+    ├── alter-jpa (JPA组件)
+    ├── alter-mybatis (Mybatis组件)
+    ├── alter-mysql (MySQL组件)
+    └── alter-redis (Redis组件)
+├── alter-web (可选的web相关组件)
+    ├── alter-mvc (SpringMVC组件，基础web组件)
+    └── alter-security (SpringSecurity组件)
+├── cloud-gateway  (cloud网关组件，必选)
+├── cloud-modules  (cloud其他组件，可选)
+    ├── cloud-feign (feign远程调用组件)
+    └── cloud-nacos (nacos注册中心组件)
+├── feign-clients (feign远程调用的客户端模块，可选)
+├── fish-modules (fish业务模块，延用eladmin模块)
+    ├── fish-common (common模块)
+    ├── fish-generator (代码生成模块)
+    ├── fish-logging (日志记录模块)
+    └── fish-system (后台管理核心模块)
 ```
+
 
 ## 特别鸣谢 ##
 
 - 再次感谢原作者[elunez](https://github.com/elunez/)提供了优秀的开源框架
+
 - 感谢 [PanJiaChen](https://github.com/PanJiaChen/vue-element-admin) 大佬提供的前端模板
 
 - 感谢 [Moxun](https://github.com/moxun1639) 大佬提供的前端 Curd 通用组件
@@ -115,7 +111,7 @@
 
 作者在开发时，对原作者的代码修改主要有如下几点：、
 
-1. 本项目遵守[LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)协议
+1. 本项目遵守[Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)协议
 2. 尽极大可能的保留作者在源码中的版权信息，包括但不限于**类文件及其他文件**、**接口文档**中的版权说明、
 3. 原项目中的大多数功能保持了一致，并未作过多修改
 4. 出于对项目统一配置与管理，将原作者的报名进行了修改，由**me.zhengjie**修改为**cn.lyn4ever**

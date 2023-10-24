@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.quartz.service;
 
-import cn.lyn4ever.config.PageResult;
+import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.quartz.domain.QuartzJob;
 import cn.lyn4ever.modules.quartz.domain.QuartzLog;
 import cn.lyn4ever.modules.quartz.service.dto.JobQueryCriteria;
