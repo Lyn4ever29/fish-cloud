@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.quartz.domain;
 
-import cn.lyn4ever.base.BaseEntity;
+import cn.lyn4ever.jpa.base.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;

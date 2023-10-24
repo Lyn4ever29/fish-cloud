@@ -2,8 +2,8 @@ package cn.lyn4ever.utils;
 
 import org.junit.jupiter.api.Test;
 
-import static cn.lyn4ever.utils.EncryptUtils.desDecrypt;
-import static cn.lyn4ever.utils.EncryptUtils.desEncrypt;
+import static cn.lyn4ever.common.utils.EncryptUtils.desDecrypt;
+import static cn.lyn4ever.common.utils.EncryptUtils.desEncrypt;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EncryptUtilsTest {

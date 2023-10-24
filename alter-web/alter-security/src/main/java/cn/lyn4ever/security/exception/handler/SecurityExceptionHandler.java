@@ -15,9 +15,9 @@
  */
 package cn.lyn4ever.security.exception.handler;
 
+import cn.lyn4ever.common.utils.StringUtils;
 import cn.lyn4ever.mvc.exception.ApiError;
 import cn.lyn4ever.security.exception.NoLoginInfoException;
-import cn.lyn4ever.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

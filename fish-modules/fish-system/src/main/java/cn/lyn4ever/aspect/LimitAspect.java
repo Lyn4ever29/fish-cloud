@@ -15,12 +15,12 @@
  */
 package cn.lyn4ever.aspect;
 
-import cn.lyn4ever.annotation.Limit;
-import cn.lyn4ever.enums.LimitType;
+import cn.lyn4ever.common.annotation.Limit;
+import cn.lyn4ever.common.enums.LimitType;
+import cn.lyn4ever.common.utils.RequestUtil;
+import cn.lyn4ever.common.utils.StringUtils;
 import cn.lyn4ever.mvc.exception.BadRequestException;
 import cn.lyn4ever.mvc.utils.RequestHolder;
-import cn.lyn4ever.utils.RequestUtil;
-import cn.lyn4ever.utils.StringUtils;
 import com.google.common.collect.ImmutableList;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -51,7 +51,7 @@ public class LimitAspect {
         this.redisTemplate = redisTemplate;
     }
 
-    @Pointcut("@annotation(cn.lyn4ever.annotation.Limit)")
+    @Pointcut("@annotation(cn.lyn4ever.common.annotation.Limit)")
     public void pointcut() {
     }
 

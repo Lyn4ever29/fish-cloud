@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.tools.rest;
 
-import cn.lyn4ever.annotation.Log;
+import cn.lyn4ever.common.annotation.Log;
 import cn.lyn4ever.modules.tools.domain.EmailConfig;
 import cn.lyn4ever.modules.tools.domain.vo.EmailVo;
 import cn.lyn4ever.modules.tools.service.EmailService;

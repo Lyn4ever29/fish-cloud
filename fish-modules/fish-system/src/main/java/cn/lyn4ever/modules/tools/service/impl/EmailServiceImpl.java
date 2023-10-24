@@ -17,12 +17,12 @@ package cn.lyn4ever.modules.tools.service.impl;
 
 import cn.hutool.extra.mail.Mail;
 import cn.hutool.extra.mail.MailAccount;
+import cn.lyn4ever.common.utils.EncryptUtils;
 import cn.lyn4ever.modules.tools.domain.EmailConfig;
 import cn.lyn4ever.modules.tools.domain.vo.EmailVo;
 import cn.lyn4ever.modules.tools.repository.EmailRepository;
 import cn.lyn4ever.modules.tools.service.EmailService;
 import cn.lyn4ever.mvc.exception.BadRequestException;
-import cn.lyn4ever.utils.EncryptUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;

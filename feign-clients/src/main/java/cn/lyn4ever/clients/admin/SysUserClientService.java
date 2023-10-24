@@ -1,9 +1,9 @@
 package cn.lyn4ever.clients.admin;
 
+import cn.lyn4ever.clients.admin.dto.JwtUserDto;
 import cn.lyn4ever.clients.admin.dto.OnlineUserDto;
 import cn.lyn4ever.clients.config.AuthorizationRequestInterceptor;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -28,5 +28,5 @@ public interface SysUserClientService {
      * @return
      */
     @GetMapping(value = "auth/loadUserByUsername")
-    public UserDetails loadUserByUsername(String username);
+    public JwtUserDto loadUserByUsername(String username);
 }

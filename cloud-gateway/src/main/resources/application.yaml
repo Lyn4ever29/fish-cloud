@@ -21,4 +21,8 @@ spring:
           uri: lb://system-log
           predicates:
             - Path=/log/**
+        - id: system_mnt # 运维管理模块
+          uri: lb://system-mnt
+          predicates:
+            - Path=/mnt/**
 

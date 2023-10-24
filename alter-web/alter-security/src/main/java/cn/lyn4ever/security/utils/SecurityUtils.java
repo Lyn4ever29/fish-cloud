@@ -15,9 +15,9 @@
  */
 package cn.lyn4ever.security.utils;
 
+import cn.lyn4ever.common.utils.SpringContextHolder;
+import cn.lyn4ever.common.utils.enums.DataScopeEnum;
 import cn.lyn4ever.security.exception.NoLoginInfoException;
-import cn.lyn4ever.utils.SpringContextHolder;
-import cn.lyn4ever.utils.enums.DataScopeEnum;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

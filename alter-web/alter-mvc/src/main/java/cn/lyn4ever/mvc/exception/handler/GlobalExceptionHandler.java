@@ -15,9 +15,9 @@
  */
 package cn.lyn4ever.mvc.exception.handler;
 
+import cn.lyn4ever.common.utils.ThrowableUtil;
 import cn.lyn4ever.mvc.exception.ApiError;
 import cn.lyn4ever.mvc.exception.BadRequestException;
-import cn.lyn4ever.utils.ThrowableUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

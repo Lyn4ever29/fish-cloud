@@ -15,6 +15,7 @@
  */
 package cn.lyn4ever.security.config;
 
+import cn.lyn4ever.common.utils.enums.RequestMethodEnum;
 import cn.lyn4ever.security.annotation.AnonymousAccess;
 import cn.lyn4ever.security.config.bean.SecurityProperties;
 import cn.lyn4ever.security.jwt.JwtAccessDeniedHandler;
@@ -22,7 +23,6 @@ import cn.lyn4ever.security.jwt.JwtAuthenticationEntryPoint;
 import cn.lyn4ever.security.jwt.TokenConfigurer;
 import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.service.CloudUserDetailService;
-import cn.lyn4ever.utils.enums.RequestMethodEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;

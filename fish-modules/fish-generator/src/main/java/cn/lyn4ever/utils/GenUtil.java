@@ -17,6 +17,7 @@ package cn.lyn4ever.utils;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.*;
+import cn.lyn4ever.common.utils.StringUtils;
 import cn.lyn4ever.domain.ColumnInfo;
 import cn.lyn4ever.domain.GenConfig;
 import cn.lyn4ever.mvc.utils.FileUtil;

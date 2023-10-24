@@ -17,7 +17,8 @@ package cn.lyn4ever.log.service.impl;
 
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.util.ObjectUtil;
-import cn.lyn4ever.annotation.Log;
+import cn.lyn4ever.common.annotation.Log;
+import cn.lyn4ever.common.utils.StringUtils;
 import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.jpa.config.PageUtil;
 import cn.lyn4ever.jpa.config.QueryHelp;
@@ -31,7 +32,6 @@ import cn.lyn4ever.log.service.mapstruct.LogSmallMapper;
 import cn.lyn4ever.mvc.utils.FileUtil;
 import cn.lyn4ever.mvc.utils.ValidationUtil;
 import cn.lyn4ever.security.utils.SecurityUtils;
-import cn.lyn4ever.utils.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import lombok.RequiredArgsConstructor;

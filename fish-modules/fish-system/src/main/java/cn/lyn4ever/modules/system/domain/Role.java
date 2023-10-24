@@ -15,8 +15,8 @@
  */
 package cn.lyn4ever.modules.system.domain;
 
-import cn.lyn4ever.base.BaseEntity;
-import cn.lyn4ever.utils.enums.DataScopeEnum;
+import cn.lyn4ever.common.utils.enums.DataScopeEnum;
+import cn.lyn4ever.jpa.base.BaseEntity;
 import com.alibaba.fastjson.annotation.JSONField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;

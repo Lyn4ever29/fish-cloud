@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.config;
 
-import cn.lyn4ever.utils.ElConstant;
+import cn.lyn4ever.common.utils.ElConstant;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

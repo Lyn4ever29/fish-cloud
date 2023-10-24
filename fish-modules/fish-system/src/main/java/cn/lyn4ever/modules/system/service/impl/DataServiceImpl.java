@@ -15,13 +15,13 @@
  */
 package cn.lyn4ever.modules.system.service.impl;
 
+import cn.lyn4ever.common.utils.enums.DataScopeEnum;
 import cn.lyn4ever.modules.system.domain.Dept;
 import cn.lyn4ever.modules.system.service.DataService;
 import cn.lyn4ever.modules.system.service.DeptService;
 import cn.lyn4ever.modules.system.service.RoleService;
 import cn.lyn4ever.modules.system.service.dto.RoleSmallDto;
 import cn.lyn4ever.modules.system.service.dto.UserDto;
-import cn.lyn4ever.utils.enums.DataScopeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;

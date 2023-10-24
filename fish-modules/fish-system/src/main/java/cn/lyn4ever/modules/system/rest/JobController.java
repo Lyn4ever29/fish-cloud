@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.system.rest;
 
-import cn.lyn4ever.annotation.Log;
+import cn.lyn4ever.common.annotation.Log;
 import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.system.domain.Job;
 import cn.lyn4ever.modules.system.service.JobService;

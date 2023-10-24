@@ -15,8 +15,8 @@
  */
 package cn.lyn4ever;
 
+import cn.lyn4ever.common.utils.SpringContextHolder;
 import cn.lyn4ever.security.annotation.rest.AnonymousGetMapping;
-import cn.lyn4ever.utils.SpringContextHolder;
 import io.swagger.annotations.Api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

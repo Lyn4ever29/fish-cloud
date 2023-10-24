@@ -16,6 +16,7 @@
 package cn.lyn4ever.modules.system.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.lyn4ever.common.utils.CacheKey;
 import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.jpa.config.PageUtil;
 import cn.lyn4ever.jpa.config.QueryHelp;
@@ -29,7 +30,6 @@ import cn.lyn4ever.modules.system.service.mapstruct.DictMapper;
 import cn.lyn4ever.mvc.utils.FileUtil;
 import cn.lyn4ever.mvc.utils.ValidationUtil;
 import cn.lyn4ever.redis.utils.RedisUtils;
-import cn.lyn4ever.utils.CacheKey;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.data.domain.Page;

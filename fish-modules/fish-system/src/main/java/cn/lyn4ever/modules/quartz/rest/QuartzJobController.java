@@ -15,14 +15,14 @@
  */
 package cn.lyn4ever.modules.quartz.rest;
 
-import cn.lyn4ever.annotation.Log;
+import cn.lyn4ever.common.annotation.Log;
+import cn.lyn4ever.common.utils.SpringContextHolder;
 import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.modules.quartz.domain.QuartzJob;
 import cn.lyn4ever.modules.quartz.domain.QuartzLog;
 import cn.lyn4ever.modules.quartz.service.QuartzJobService;
 import cn.lyn4ever.modules.quartz.service.dto.JobQueryCriteria;
 import cn.lyn4ever.mvc.exception.BadRequestException;
-import cn.lyn4ever.utils.SpringContextHolder;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

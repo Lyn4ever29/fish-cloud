@@ -17,6 +17,7 @@ package cn.lyn4ever.clients.admin.dto;
 
 import cn.lyn4ever.clients.base.BaseDTO;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -63,6 +64,6 @@ public class UserDto extends BaseDTO implements Serializable {
 
     @JSONField(serialize = false)
     private Boolean isAdmin = false;
-
+    @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date pwdResetTime;
 }

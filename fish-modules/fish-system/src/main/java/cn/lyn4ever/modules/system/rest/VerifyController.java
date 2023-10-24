@@ -15,11 +15,11 @@
  */
 package cn.lyn4ever.modules.system.rest;
 
+import cn.lyn4ever.common.utils.enums.CodeBiEnum;
+import cn.lyn4ever.common.utils.enums.CodeEnum;
 import cn.lyn4ever.modules.system.service.VerifyService;
 import cn.lyn4ever.modules.tools.domain.vo.EmailVo;
 import cn.lyn4ever.modules.tools.service.EmailService;
-import cn.lyn4ever.utils.enums.CodeBiEnum;
-import cn.lyn4ever.utils.enums.CodeEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

@@ -16,8 +16,10 @@
 package cn.lyn4ever.modules.system.rest;
 
 import cn.hutool.core.collection.CollectionUtil;
-import cn.lyn4ever.annotation.Log;
-import cn.lyn4ever.config.RsaProperties;
+import cn.lyn4ever.common.annotation.Log;
+import cn.lyn4ever.common.config.RsaProperties;
+import cn.lyn4ever.common.utils.RsaUtils;
+import cn.lyn4ever.common.utils.enums.CodeEnum;
 import cn.lyn4ever.jpa.config.PageResult;
 import cn.lyn4ever.jpa.config.PageUtil;
 import cn.lyn4ever.modules.system.domain.Dept;
@@ -29,8 +31,6 @@ import cn.lyn4ever.modules.system.service.dto.UserDto;
 import cn.lyn4ever.modules.system.service.dto.UserQueryCriteria;
 import cn.lyn4ever.mvc.exception.BadRequestException;
 import cn.lyn4ever.security.utils.SecurityUtils;
-import cn.lyn4ever.utils.RsaUtils;
-import cn.lyn4ever.utils.enums.CodeEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

@@ -11,7 +11,7 @@
 
 项目来源于ELADMIN,作者将其改造成SpringCloud项目，原项目地址：[https://github.com/elunez/eladmin-mp](https://github.com/elunez/eladmin-mp)、[https://gitee.com/elunez/eladmin-mp](https://gitee.com/elunez/eladmin-mp)。
 
-**开发文档：** (建设中)
+**开发文档：** [http://cloud.jhacker.cn]()(建设中)
 
 **体验地址：**  (建设中)
 
@@ -26,13 +26,13 @@
 
 ## 项目组件 ## 
 
-#### SpringCloud
+- [SpringCloud](https://spring.io/projects/spring-cloud-alibaba)
 
-#### Nacos
+- [Nacos](https://nacos.io/zh-cn/)
 
-#### Setinal
+- [Setinal](https://sentinelguard.io/zh-cn/index.html)
 
-#### Gateway
+- [Gateway](https://spring.io/projects/spring-cloud-gateway)
 
 ## 主要特性 ##
 

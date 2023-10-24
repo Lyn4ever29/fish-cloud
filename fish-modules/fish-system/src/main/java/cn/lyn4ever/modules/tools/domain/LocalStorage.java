@@ -17,7 +17,7 @@ package cn.lyn4ever.modules.tools.domain;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import cn.lyn4ever.base.BaseEntity;
+import cn.lyn4ever.jpa.base.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.modules.tools.service.dto;
 
-import cn.lyn4ever.base.BaseDTO;
+import cn.lyn4ever.mvc.base.BaseDTO;
 import lombok.Getter;
 import lombok.Setter;
 
