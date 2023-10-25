@@ -18,7 +18,6 @@ package cn.lyn4ever.mnt.util;
 import cn.lyn4ever.common.utils.CloseUtil;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.util.StringUtils;
-import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.sql.DataSource;
@@ -31,6 +30,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -182,7 +182,7 @@ public class SqlUtils {
      * @throws Exception e
      */
     private static List<String> readSqlList(File sqlFile) throws Exception {
-        List<String> sqlList = Lists.newArrayList();
+        List<String> sqlList = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(
                 new FileInputStream(sqlFile), StandardCharsets.UTF_8))) {

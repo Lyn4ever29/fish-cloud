@@ -24,8 +24,8 @@ import cn.lyn4ever.security.annotation.AnonymousAccess;
 import cn.lyn4ever.security.config.SecurityProperties;
 import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.utils.SecurityUtils;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -46,7 +46,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-@Api(tags = "系统：系统授权接口")
+@Tag(name = "系统：系统授权接口")
 public class AuthorizationCloudController {
     private final SecurityProperties properties;
     private final RedisUtils redisUtils;
@@ -56,14 +56,14 @@ public class AuthorizationCloudController {
     @Resource
     private LoginProperties loginProperties;
 
-    @ApiOperation("获取用户信息")
+    @Operation(summary= "获取用户信息")
     @GetMapping(value = "/resolveUserByToken")
     @AnonymousAccess //todo 先放行，后续处理
     public OnlineUserDto resolveUserByToken(String token) {
         return userDetailsService.resolveUserByToken(token);
     }
 
-    @ApiOperation("根据token获取用户信息")
+    @Operation(summary= "根据token获取用户信息")
     @GetMapping(value = "/loadUserByUsername")
     @AnonymousAccess //todo 先放行，后续处理
     public UserDetails loadUserByUsername() {

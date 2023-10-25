@@ -25,8 +25,8 @@ import cn.lyn4ever.modules.system.service.dto.RoleQueryCriteria;
 import cn.lyn4ever.modules.system.service.dto.RoleSmallDto;
 import cn.lyn4ever.mvc.exception.BadRequestException;
 import cn.lyn4ever.security.utils.SecurityUtils;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -48,49 +48,49 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequiredArgsConstructor
-@Api(tags = "系统：角色管理")
+@Tag(name = "系统：角色管理")
 @RequestMapping("/api/roles")
 public class RoleController {
 
     private static final String ENTITY_NAME = "role";
     private final RoleService roleService;
 
-    @ApiOperation("获取单个role")
+    @Operation(summary= "获取单个role")
     @GetMapping(value = "/{id}")
     @PreAuthorize("@el.check('roles:list')")
     public ResponseEntity<RoleDto> findRoleById(@PathVariable Long id) {
         return new ResponseEntity<>(roleService.findById(id), HttpStatus.OK);
     }
 
-    @ApiOperation("导出角色数据")
+    @Operation(summary= "导出角色数据")
     @GetMapping(value = "/download")
     @PreAuthorize("@el.check('role:list')")
     public void exportRole(HttpServletResponse response, RoleQueryCriteria criteria) throws IOException {
         roleService.download(roleService.queryAll(criteria), response);
     }
 
-    @ApiOperation("返回全部的角色")
+    @Operation(summary= "返回全部的角色")
     @GetMapping(value = "/all")
     @PreAuthorize("@el.check('roles:list','user:add','user:edit')")
     public ResponseEntity<List<RoleDto>> queryAllRole() {
         return new ResponseEntity<>(roleService.queryAll(), HttpStatus.OK);
     }
 
-    @ApiOperation("查询角色")
+    @Operation(summary= "查询角色")
     @GetMapping
     @PreAuthorize("@el.check('roles:list')")
     public ResponseEntity<PageResult<RoleDto>> queryRole(RoleQueryCriteria criteria, Pageable pageable) {
         return new ResponseEntity<>(roleService.queryAll(criteria, pageable), HttpStatus.OK);
     }
 
-    @ApiOperation("获取用户级别")
+    @Operation(summary= "获取用户级别")
     @GetMapping(value = "/level")
     public ResponseEntity<Object> getRoleLevel() {
         return new ResponseEntity<>(Dict.create().set("level", getLevels(null)), HttpStatus.OK);
     }
 
     @Log("新增角色")
-    @ApiOperation("新增角色")
+    @Operation(summary= "新增角色")
     @PostMapping
     @PreAuthorize("@el.check('roles:add')")
     public ResponseEntity<Object> createRole(@Validated @RequestBody Role resources) {
@@ -103,7 +103,7 @@ public class RoleController {
     }
 
     @Log("修改角色")
-    @ApiOperation("修改角色")
+    @Operation(summary= "修改角色")
     @PutMapping
     @PreAuthorize("@el.check('roles:edit')")
     public ResponseEntity<Object> updateRole(@Validated(Role.Update.class) @RequestBody Role resources) {
@@ -113,7 +113,7 @@ public class RoleController {
     }
 
     @Log("修改角色菜单")
-    @ApiOperation("修改角色菜单")
+    @Operation(summary= "修改角色菜单")
     @PutMapping(value = "/menu")
     @PreAuthorize("@el.check('roles:edit')")
     public ResponseEntity<Object> updateRoleMenu(@RequestBody Role resources) {
@@ -124,7 +124,7 @@ public class RoleController {
     }
 
     @Log("删除角色")
-    @ApiOperation("删除角色")
+    @Operation(summary= "删除角色")
     @DeleteMapping
     @PreAuthorize("@el.check('roles:del')")
     public ResponseEntity<Object> deleteRole(@RequestBody Set<Long> ids) {

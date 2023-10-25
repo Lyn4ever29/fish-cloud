@@ -17,7 +17,7 @@ package cn.lyn4ever.mnt.util;
 
 import ch.ethz.ssh2.Connection;
 import ch.ethz.ssh2.SCPClient;
-import com.google.common.collect.Maps;
+import com.alibaba.nacos.shaded.com.google.common.collect.Maps;
 
 import java.io.IOException;
 import java.util.Map;

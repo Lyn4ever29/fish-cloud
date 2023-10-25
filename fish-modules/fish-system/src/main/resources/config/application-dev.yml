@@ -82,14 +82,34 @@ jwt:
     - /avatar/**
     - /druid/**
     - /auth/**
+    - /v3/api-docs/**
 
-#是否允许生成代码，生产环境设置为false
-generator:
-  enabled: true
 
-#是否开启 swagger-ui
-swagger:
-  enabled: true
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    enabled: false # 不使用swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: cn.lyn4ever.modules.system.rest
+    - group: '登陆'
+      paths-to-match: '/**'
+      packages-to-scan: cn.lyn4ever.modules.security.rest
+    - group: '定时任务'
+      paths-to-match: '/**'
+      packages-to-scan: cn.lyn4ever.modules.quartz.rest
+    - group: '工具相关'
+      paths-to-match: '/**'
+      packages-to-scan: cn.lyn4ever.modules.tools.rest
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
 
 # 文件存储路径
 file:

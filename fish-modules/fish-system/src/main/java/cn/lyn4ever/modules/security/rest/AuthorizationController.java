@@ -34,8 +34,8 @@ import cn.lyn4ever.security.config.SecurityProperties;
 import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.utils.SecurityUtils;
 import com.wf.captcha.base.Captcha;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -63,7 +63,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-@Api(tags = "系统：系统授权接口")
+@Tag(name = "系统：系统授权接口")
 public class AuthorizationController {
     private final SecurityProperties properties;
     private final RedisUtils redisUtils;
@@ -74,7 +74,7 @@ public class AuthorizationController {
     private LoginProperties loginProperties;
 
     @Log("用户登录")
-    @ApiOperation("登录授权")
+    @Operation(summary= "登录授权")
     @AnonymousPostMapping(value = "/login")
     public ResponseEntity<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request) throws Exception {
         // 密码解密
@@ -117,13 +117,13 @@ public class AuthorizationController {
         return ResponseEntity.ok(authInfo);
     }
 
-    @ApiOperation("获取用户信息")
+    @Operation(summary= "获取用户信息")
     @GetMapping(value = "/info")
     public ResponseEntity<UserDetails> getUserInfo() {
         return ResponseEntity.ok(SecurityUtils.getCurrentUser());
     }
 
-    @ApiOperation("获取验证码")
+    @Operation(summary= "获取验证码")
     @AnonymousGetMapping(value = "/code")
     public ResponseEntity<Object> getCode() {
         // 获取运算的结果
@@ -144,7 +144,7 @@ public class AuthorizationController {
         return ResponseEntity.ok(imgResult);
     }
 
-    @ApiOperation("退出登录")
+    @Operation(summary= "退出登录")
     @DeleteMapping(value = "/logout")
     @AnonymousAccess
     public ResponseEntity<Object> logout(HttpServletRequest request) {

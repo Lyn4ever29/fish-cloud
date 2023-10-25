@@ -16,3 +16,12 @@ spring:
     host: 127.0.0.1
     port: 6379
     password:
+
+springdoc:
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: cn.lyn4ever.example.rest
+    - group: '例子2'
+      paths-to-match: '/**'
+      packages-to-scan: cn.lyn4ever.example1.rest

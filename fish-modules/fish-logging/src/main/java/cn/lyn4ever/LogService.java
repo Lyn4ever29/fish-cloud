@@ -17,7 +17,6 @@ package cn.lyn4ever;
 
 import cn.lyn4ever.common.utils.SpringContextHolder;
 import cn.lyn4ever.security.annotation.rest.AnonymousGetMapping;
-import io.swagger.annotations.Api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.ApplicationPidFileWriter;
@@ -33,7 +32,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2018/11/15 9:20:19
  */
 @RestController
-@Api(hidden = true)
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableDiscoveryClient

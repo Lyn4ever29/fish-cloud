@@ -18,7 +18,7 @@ package cn.lyn4ever.mnt.domain;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.lyn4ever.jpa.base.BaseEntity;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,12 +38,12 @@ public class Deploy extends BaseEntity implements Serializable {
 
     @Id
     @Column(name = "deploy_id")
-    @ApiModelProperty(value = "ID", hidden = true)
+    @Schema(description = "ID", hidden = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToMany
-    @ApiModelProperty(name = "服务器", hidden = true)
+    @Schema(name = "服务器", hidden = true)
     @JoinTable(name = "mnt_deploy_server",
             joinColumns = {@JoinColumn(name = "deploy_id", referencedColumnName = "deploy_id")},
             inverseJoinColumns = {@JoinColumn(name = "server_id", referencedColumnName = "server_id")})
@@ -51,7 +51,7 @@ public class Deploy extends BaseEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "app_id")
-    @ApiModelProperty(value = "应用编号")
+    @Schema(description = "应用编号")
     private App app;
 
     public void copy(Deploy source) {

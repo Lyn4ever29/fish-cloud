@@ -20,8 +20,8 @@ import cn.lyn4ever.common.utils.enums.CodeEnum;
 import cn.lyn4ever.modules.system.service.VerifyService;
 import cn.lyn4ever.modules.tools.domain.vo.EmailVo;
 import cn.lyn4ever.modules.tools.service.EmailService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,14 +36,14 @@ import java.util.Objects;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/code")
-@Api(tags = "系统：验证码管理")
+@Tag(name = "系统：验证码管理")
 public class VerifyController {
 
     private final VerifyService verificationCodeService;
     private final EmailService emailService;
 
     @PostMapping(value = "/resetEmail")
-    @ApiOperation("重置邮箱，发送验证码")
+    @Operation(summary= "重置邮箱，发送验证码")
     public ResponseEntity<Object> resetEmail(@RequestParam String email) {
         EmailVo emailVo = verificationCodeService.sendEmail(email, CodeEnum.EMAIL_RESET_EMAIL_CODE.getKey());
         emailService.send(emailVo, emailService.find());
@@ -51,7 +51,7 @@ public class VerifyController {
     }
 
     @PostMapping(value = "/email/resetPass")
-    @ApiOperation("重置密码，发送验证码")
+    @Operation(summary= "重置密码，发送验证码")
     public ResponseEntity<Object> resetPass(@RequestParam String email) {
         EmailVo emailVo = verificationCodeService.sendEmail(email, CodeEnum.EMAIL_RESET_PWD_CODE.getKey());
         emailService.send(emailVo, emailService.find());
@@ -59,7 +59,7 @@ public class VerifyController {
     }
 
     @GetMapping(value = "/validated")
-    @ApiOperation("验证码验证")
+    @Operation(summary= "验证码验证")
     public ResponseEntity<Object> validated(@RequestParam String email, @RequestParam String code, @RequestParam Integer codeBi) {
         CodeBiEnum biEnum = CodeBiEnum.find(codeBi);
         switch (Objects.requireNonNull(biEnum)) {

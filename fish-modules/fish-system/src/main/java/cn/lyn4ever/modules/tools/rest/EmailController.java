@@ -19,8 +19,8 @@ import cn.lyn4ever.common.annotation.Log;
 import cn.lyn4ever.modules.tools.domain.EmailConfig;
 import cn.lyn4ever.modules.tools.domain.vo.EmailVo;
 import cn.lyn4ever.modules.tools.service.EmailService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/email")
-@Api(tags = "工具：邮件管理")
+@Tag(name = "工具：邮件管理")
 public class EmailController {
 
     private final EmailService emailService;
@@ -48,7 +48,7 @@ public class EmailController {
 
     @Log("配置邮件")
     @PutMapping
-    @ApiOperation("配置邮件")
+    @Operation(summary= "配置邮件")
     public ResponseEntity<Object> updateEmailConfig(@Validated @RequestBody EmailConfig emailConfig) throws Exception {
         emailService.config(emailConfig, emailService.find());
         return new ResponseEntity<>(HttpStatus.OK);
@@ -56,7 +56,7 @@ public class EmailController {
 
     @Log("发送邮件")
     @PostMapping
-    @ApiOperation("发送邮件")
+    @Operation(summary= "发送邮件")
     public ResponseEntity<Object> sendEmail(@Validated @RequestBody EmailVo emailVo) {
         emailService.send(emailVo, emailService.find());
         return new ResponseEntity<>(HttpStatus.OK);
