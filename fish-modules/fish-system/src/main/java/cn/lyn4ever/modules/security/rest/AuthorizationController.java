@@ -17,7 +17,7 @@ package cn.lyn4ever.modules.security.rest;
 
 import cn.hutool.core.util.IdUtil;
 import cn.lyn4ever.common.annotation.Log;
-import cn.lyn4ever.common.config.RsaProperties;
+import cn.lyn4ever.security.config.RsaProperties;
 import cn.lyn4ever.common.utils.RsaUtils;
 import cn.lyn4ever.common.utils.StringUtils;
 import cn.lyn4ever.modules.security.config.bean.LoginCodeEnum;
@@ -30,7 +30,7 @@ import cn.lyn4ever.redis.utils.RedisUtils;
 import cn.lyn4ever.security.annotation.AnonymousAccess;
 import cn.lyn4ever.security.annotation.rest.AnonymousGetMapping;
 import cn.lyn4ever.security.annotation.rest.AnonymousPostMapping;
-import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.config.SecurityProperties;
 import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.utils.SecurityUtils;
 import com.wf.captcha.base.Captcha;

@@ -15,7 +15,7 @@
  */
 package cn.lyn4ever.security.jwt;
 
-import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.config.SecurityProperties;
 import cn.lyn4ever.security.service.CloudUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;

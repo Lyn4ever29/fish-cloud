@@ -24,7 +24,7 @@ import cn.lyn4ever.modules.security.service.dto.JwtUserDto;
 import cn.lyn4ever.modules.security.service.dto.OnlineUserDto;
 import cn.lyn4ever.mvc.utils.FileUtil;
 import cn.lyn4ever.redis.utils.RedisUtils;
-import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.config.SecurityProperties;
 import cn.lyn4ever.security.jwt.TokenProvider;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -16,7 +16,7 @@
 package cn.lyn4ever.security.jwt;
 
 import cn.hutool.core.util.StrUtil;
-import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.config.SecurityProperties;
 import cn.lyn4ever.security.service.CloudUserDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

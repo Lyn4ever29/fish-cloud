@@ -17,13 +17,13 @@ package cn.lyn4ever.security.config;
 
 import cn.lyn4ever.common.utils.enums.RequestMethodEnum;
 import cn.lyn4ever.security.annotation.AnonymousAccess;
-import cn.lyn4ever.security.config.bean.SecurityProperties;
 import cn.lyn4ever.security.jwt.JwtAccessDeniedHandler;
 import cn.lyn4ever.security.jwt.JwtAuthenticationEntryPoint;
 import cn.lyn4ever.security.jwt.TokenConfigurer;
 import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.service.CloudUserDetailService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,7 +51,8 @@ import java.util.*;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
+@EnableConfigurationProperties
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true) //PreAuthorize
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final TokenProvider tokenProvider;

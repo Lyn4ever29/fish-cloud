@@ -13,10 +13,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.lyn4ever.common.config;
+package cn.lyn4ever.security.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -27,12 +30,14 @@ import org.springframework.stereotype.Component;
  **/
 @Data
 @Component
+@ConfigurationProperties(prefix = "rsa")
+@PropertySource("classpath:rsa.properties")
 public class RsaProperties {
 
     public static String privateKey;
-
-    @Value("${rsa.private_key}")
-    public void setPrivateKey(String privateKey) {
-        RsaProperties.privateKey = privateKey;
-    }
+//
+//    @Value("${rsa.private_key}")
+//    public void setPrivateKey(String privateKey) {
+//        RsaProperties.privateKey = privateKey;
+//    }
 }

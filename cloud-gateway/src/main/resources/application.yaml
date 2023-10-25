@@ -25,4 +25,8 @@ spring:
           uri: lb://system-mnt
           predicates:
             - Path=/mnt/**
+        - id: fish_example
+          uri: lb://fish-example
+          predicates:
+            - Path=/example/**
 

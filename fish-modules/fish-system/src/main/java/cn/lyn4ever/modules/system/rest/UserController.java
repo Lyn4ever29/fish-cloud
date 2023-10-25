@@ -17,7 +17,7 @@ package cn.lyn4ever.modules.system.rest;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.lyn4ever.common.annotation.Log;
-import cn.lyn4ever.common.config.RsaProperties;
+import cn.lyn4ever.security.config.RsaProperties;
 import cn.lyn4ever.common.utils.RsaUtils;
 import cn.lyn4ever.common.utils.enums.CodeEnum;
 import cn.lyn4ever.jpa.config.PageResult;

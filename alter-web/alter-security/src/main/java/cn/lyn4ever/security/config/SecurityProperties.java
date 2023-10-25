@@ -13,9 +13,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.lyn4ever.security.config.bean;
+package cn.lyn4ever.security.config;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -25,6 +30,13 @@ import java.util.List;
  * @author Zheng Jie
  * @date 2019年11月28日
  */
+@Component
+@EnableConfigurationProperties
+@ConfigurationProperties(prefix = "jwt")
+@PropertySources({
+        @PropertySource("classpath:application.yml"),
+        @PropertySource("classpath:alter-security.properties")
+})
 @Data
 public class SecurityProperties {
 

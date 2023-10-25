@@ -15,6 +15,7 @@
         <module>fish-system</module>
         <module>fish-generator</module>
         <module>fish-mnt</module>
+        <module>fish-example</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -21,7 +21,7 @@ import cn.lyn4ever.modules.security.service.UserDetailsServiceImpl;
 import cn.lyn4ever.modules.security.service.dto.OnlineUserDto;
 import cn.lyn4ever.redis.utils.RedisUtils;
 import cn.lyn4ever.security.annotation.AnonymousAccess;
-import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.config.SecurityProperties;
 import cn.lyn4ever.security.jwt.TokenProvider;
 import cn.lyn4ever.security.utils.SecurityUtils;
 import io.swagger.annotations.Api;

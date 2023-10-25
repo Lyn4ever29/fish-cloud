@@ -20,12 +20,14 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import cn.lyn4ever.redis.utils.RedisUtils;
-import cn.lyn4ever.security.config.bean.SecurityProperties;
+import cn.lyn4ever.security.config.SecurityProperties;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -43,18 +45,16 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Component
+@Order(10)
 public class TokenProvider implements InitializingBean {
 
     public static final String AUTHORITIES_KEY = "user";
-    private final SecurityProperties properties;
-    private final RedisUtils redisUtils;
+    @Autowired
+    private SecurityProperties properties;
+    @Autowired
+    private RedisUtils redisUtils;
     private JwtParser jwtParser;
     private JwtBuilder jwtBuilder;
-
-    public TokenProvider(SecurityProperties properties, RedisUtils redisUtils) {
-        this.properties = properties;
-        this.redisUtils = redisUtils;
-    }
 
     @Override
     public void afterPropertiesSet() {
