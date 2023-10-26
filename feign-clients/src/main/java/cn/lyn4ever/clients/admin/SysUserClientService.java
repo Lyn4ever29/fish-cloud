@@ -5,6 +5,7 @@ import cn.lyn4ever.clients.admin.dto.OnlineUserDto;
 import cn.lyn4ever.clients.config.AuthorizationRequestInterceptor;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * feign调用admin模块的方法
@@ -19,7 +20,7 @@ public interface SysUserClientService {
      * @return
      */
     @GetMapping(value = "auth/resolveUserByToken")
-    public OnlineUserDto resolveUserByToken(String token);
+    public OnlineUserDto resolveUserByToken(@RequestParam String token);
 
     /**
      * 传入用户名，返回用户信息
@@ -28,5 +29,5 @@ public interface SysUserClientService {
      * @return
      */
     @GetMapping(value = "auth/loadUserByUsername")
-    public JwtUserDto loadUserByUsername(String username);
+    public JwtUserDto loadUserByUsername(@RequestParam String username);
 }

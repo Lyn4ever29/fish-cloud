@@ -7,7 +7,7 @@
     <groupId>cn.lyn4ever</groupId>
     <artifactId>fish-cloud</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
 
     <modules>
         <module>alter-web</module>
@@ -19,7 +19,7 @@
     </modules>
 
     <name>fish-cloud 后台管理系统</name>
-    <url>https://cloud.jhacker.cn</url>
+    <url>https://fishcloud.top</url>
 
     <!--    <parent>-->
     <!--        <groupId>org.springframework.boot</groupId>-->
@@ -32,6 +32,8 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <druid.version>1.2.20</druid.version>
+        <commons-pool2.version>2.11.1</commons-pool2.version>
 
         <log4j2.version>2.17.0</log4j2.version>
         <logback.version>1.2.9</logback.version>
@@ -48,16 +50,17 @@
         <hutool.version>5.8.20</hutool.version>
         <!--以下版本说明来自于Springcloud Alibaba-->
         <!--https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E-->
-        <spring.boot.version>2.6.13</spring.boot.version>
-        <spring.cloud.version>2021.0.5</spring.cloud.version>
-        <spring.cloud.alibaba.version>2021.0.5.0</spring.cloud.alibaba.version>
-        <alibaba.nacos.version>2.2.0.RELEASE</alibaba.nacos.version>
+        <spring.boot.version>3.0.2</spring.boot.version>
+        <spring.cloud.version>2022.0.0</spring.cloud.version>
+        <spring.cloud.alibaba.version>2022.0.0.0-RC2</spring.cloud.alibaba.version>
+        <alibaba.nacos.version>2022.0.0.0-RC2</alibaba.nacos.version>
         <alibaba.sentinel.version>1.8.6</alibaba.sentinel.version>
         <alibaba.rocketmq.version>4.9.4</alibaba.rocketmq.version>
         <alibaba.dubbo.version>2.7.13</alibaba.dubbo.version>
-        <alibaba.seata.version>1.6.1</alibaba.seata.version>
+        <alibaba.seata.version>1.7.0</alibaba.seata.version>
 
         <knife4j.version>4.3.0</knife4j.version>
+        <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
 
     </properties>
 
@@ -80,8 +83,10 @@
         <dependency>
             <groupId>net.dreamlu</groupId>
             <artifactId>mica-ip2region</artifactId>
-            <version>2.7.12</version>
+            <version>3.0.8</version>
         </dependency>
+
+
 
         <!--lombok插件-->
         <dependency>

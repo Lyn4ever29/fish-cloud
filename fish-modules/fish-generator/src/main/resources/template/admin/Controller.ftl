@@ -28,7 +28,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.*;
 import java.io.IOException;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import cn.lyn4ever.jpa.config.PageResult;
 import ${package}.service.dto.${className}Dto;
 
@@ -46,7 +46,7 @@ public class ${className}Controller {
 private final ${className}Service ${changeClassName}Service;
 
 @Log("导出数据")
-@ApiOperation("导出数据")
+ @Operation(summary = "导出数据")
 @GetMapping(value = "/download")
 @PreAuthorize("@el.check('${changeClassName}:list')")
 public void export${className}(HttpServletResponse response, ${className}QueryCriteria criteria) throws IOException {
@@ -55,7 +55,7 @@ ${changeClassName}Service.download(${changeClassName}Service.queryAll(criteria),
 
 @GetMapping
 @Log("查询${apiAlias}")
-@ApiOperation("查询${apiAlias}")
+ @Operation(summary = "查询${apiAlias}")
 @PreAuthorize("@el.check('${changeClassName}:list')")
 public ResponseEntity
 <PageResult
@@ -65,7 +65,7 @@ public ResponseEntity
 
     @PostMapping
     @Log("新增${apiAlias}")
-    @ApiOperation("新增${apiAlias}")
+     @Operation(summary = "新增${apiAlias}")
     @PreAuthorize("@el.check('${changeClassName}:add')")
     public ResponseEntity
     <Object> create${className}(@Validated @RequestBody ${className} resources){
@@ -75,7 +75,7 @@ public ResponseEntity
 
         @PutMapping
         @Log("修改${apiAlias}")
-        @ApiOperation("修改${apiAlias}")
+         @Operation(summary = "修改${apiAlias}")
         @PreAuthorize("@el.check('${changeClassName}:edit')")
         public ResponseEntity
         <Object> update${className}(@Validated @RequestBody ${className} resources){
@@ -85,7 +85,7 @@ public ResponseEntity
 
             @DeleteMapping
             @Log("删除${apiAlias}")
-            @ApiOperation("删除${apiAlias}")
+             @Operation(summary = "删除${apiAlias}")
             @PreAuthorize("@el.check('${changeClassName}:del')")
             public ResponseEntity
             <Object> delete${className}(@RequestBody ${pkColumnType}[] ids) {

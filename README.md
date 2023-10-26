@@ -7,15 +7,16 @@
 
 ## 项目简介 ##
 
-一个基于 Spring Boot 2.6.13 、 Spring Boot Jpa、 JWT、Spring Security、Redis、Vue的前后端分离的后台管理系统
+一个基于 Spring Boot 3.0.2 、 Spring Boot Jpa、 JWT、Spring Security、Redis、Vue的前后端分离的后台管理系统
 
 项目来源于ELADMIN,作者将其改造成SpringCloud项目，原项目地址：[https://github.com/elunez/eladmin-mp](https://github.com/elunez/eladmin-mp)、[https://gitee.com/elunez/eladmin-mp](https://gitee.com/elunez/eladmin-mp)。
 
-**开发文档：** [http://cloud.jhacker.cn/](http://cloud.jhacker.cn/)(建设中)
+**开发文档：** [https://fishcloud.top/](https://fishcloud.top/)(建设中)
 
 **体验地址：**  (建设中)
 
-
+注：
+- 如果想使用SpringBoot2.6.13，请使用Boot2.6.13分支
 
 ## 项目源码 ## 
 
@@ -33,6 +34,20 @@
 - [Setinal](https://sentinelguard.io/zh-cn/index.html)
 
 - [Gateway](https://spring.io/projects/spring-cloud-gateway)
+
+
+## 项目中各组件版本号
+
+|组件名|版本号|
+|--|--|
+|Spring Boot|3.0.2|
+|SpringCloud|Spring Cloud 2022.0.0|
+|Spring Cloud Alibaba|2022.0.0.0-RC2|
+|Nacos|2.2.1|
+|Sentinel|1.8.6|
+|Seata|1.7.0|
+|RocketMQ|4.9.4|
+
 
 ## 主要特性 ##
 
@@ -57,7 +72,7 @@
 
 ## 系统功能 ##
 
-> 以下文档来自eladmin原作者
+> 以下文档来自eladmin原作者，已全部支持
 - 用户管理：提供用户的相关配置，新增用户后，默认密码为123456
 - 角色管理：对权限与菜单进行分配，可根据部门设置角色的数据权限
 - 菜单管理：已实现菜单动态路由，后端可配置化，支持多级菜单

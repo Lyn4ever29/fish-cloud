@@ -20,7 +20,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.lyn4ever.jpa.annotation.Query;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.criteria.*;
+import jakarta.persistence.criteria.*;
 import java.lang.reflect.Field;
 import java.util.*;
 

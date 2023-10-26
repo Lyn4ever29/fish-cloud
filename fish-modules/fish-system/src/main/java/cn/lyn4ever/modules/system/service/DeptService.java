@@ -19,7 +19,7 @@ import cn.lyn4ever.modules.system.domain.Dept;
 import cn.lyn4ever.modules.system.service.dto.DeptDto;
 import cn.lyn4ever.modules.system.service.dto.DeptQueryCriteria;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;

@@ -17,12 +17,12 @@ package cn.lyn4ever.modules.quartz.utils;
 
 import cn.lyn4ever.modules.quartz.domain.QuartzJob;
 import cn.lyn4ever.mvc.exception.BadRequestException;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.impl.triggers.CronTriggerImpl;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.Date;
 
 import static org.quartz.TriggerBuilder.newTrigger;

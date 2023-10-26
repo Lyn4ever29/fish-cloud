@@ -1,3 +1,5 @@
-feign:
-  httpclient:
-    enabled: true
+spring:
+  cloud:
+    openfeign:
+      httpclient:
+        enabled: true

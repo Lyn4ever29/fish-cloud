@@ -28,14 +28,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.core.GrantedAuthorityDefaults;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.filter.CorsFilter;
@@ -52,8 +53,8 @@ import java.util.*;
 @EnableWebSecurity
 @RequiredArgsConstructor
 @EnableConfigurationProperties
-@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true) //PreAuthorize
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true) //PreAuthorize
+public class SecurityConfiguration {
 
     private final TokenProvider tokenProvider;
     private final CorsFilter corsFilter;
@@ -76,18 +77,55 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // 搜寻匿名标记 url： @AnonymousAccess
         RequestMappingHandlerMapping requestMappingHandlerMapping = (RequestMappingHandlerMapping) applicationContext.getBean("requestMappingHandlerMapping");
         Map<RequestMappingInfo, HandlerMethod> handlerMethodMap = requestMappingHandlerMapping.getHandlerMethods();
         // 获取匿名标记
         Map<String, Set<String>> anonymousUrls = getAnonymousUrl(handlerMethodMap);
         // 获取匿名url配置
-        String[] ignoreUrls = properties.getIgnoreUrls().stream().toArray(String[]::new);
-        httpSecurity
-                // 禁用 CSRF
-                .csrf().disable()
+        String[] ignoreUrls = properties.getIgnoreUrls().toArray(String[]::new);
+
+        http.authorizeHttpRequests(auth -> {
+            auth// 静态资源等等
+                    .requestMatchers(
+                            HttpMethod.GET,
+                            "/*.html",
+                            "/**.html",
+                            "/**.css",
+                            "/**.js",
+                            "/webSocket/**"
+                    ).permitAll()
+                    // swagger 文档
+                    .requestMatchers("/swagger-ui.html").permitAll()
+                    .requestMatchers("/swagger-resources/**").permitAll()
+                    .requestMatchers("/webjars/**").permitAll()
+                    .requestMatchers("/doc.html").permitAll()
+                    .requestMatchers("/*/api-docs/**").permitAll()
+                    // 放行OPTIONS请求
+                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                    //放行配置的url
+                    .requestMatchers(ignoreUrls).permitAll()
+                    // 自定义匿名访问所有url放行：允许匿名和带Token访问，细腻化到每个 Request 类型
+                    // GET
+                    .requestMatchers(HttpMethod.GET, anonymousUrls.get(RequestMethodEnum.GET.getType()).toArray(new String[0])).permitAll()
+                    // POST
+                    .requestMatchers(HttpMethod.POST, anonymousUrls.get(RequestMethodEnum.POST.getType()).toArray(new String[0])).permitAll()
+                    // PUT
+                    .requestMatchers(HttpMethod.PUT, anonymousUrls.get(RequestMethodEnum.PUT.getType()).toArray(new String[0])).permitAll()
+                    // PATCH
+                    .requestMatchers(HttpMethod.PATCH, anonymousUrls.get(RequestMethodEnum.PATCH.getType()).toArray(new String[0])).permitAll()
+                    // DELETE
+                    .requestMatchers(HttpMethod.DELETE, anonymousUrls.get(RequestMethodEnum.DELETE.getType()).toArray(new String[0])).permitAll()
+                    // 所有类型的接口都放行
+                    .requestMatchers(anonymousUrls.get(RequestMethodEnum.ALL.getType()).toArray(new String[0])).permitAll()
+                    // 其他所有请求都需要验证
+                    .anyRequest().authenticated();
+        }).httpBasic(Customizer.withDefaults());
+
+        // 禁用 CSRF
+        http.csrf().disable()
                 .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
                 // 授权异常
                 .exceptionHandling()
@@ -102,42 +140,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authorizeRequests()
-                // 静态资源等等
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/*.html",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js",
-                        "/webSocket/**"
-                ).permitAll()
-                // swagger 文档
-                .antMatchers("/swagger-ui.html").permitAll()
-                .antMatchers("/swagger-resources/**").permitAll()
-                .antMatchers("/webjars/**").permitAll()
-                .antMatchers("/*/api-docs").permitAll()
-                // 放行OPTIONS请求
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                //放行配置的url
-                .antMatchers(ignoreUrls).permitAll()
-                // 自定义匿名访问所有url放行：允许匿名和带Token访问，细腻化到每个 Request 类型
-                // GET
-                .antMatchers(HttpMethod.GET, anonymousUrls.get(RequestMethodEnum.GET.getType()).toArray(new String[0])).permitAll()
-                // POST
-                .antMatchers(HttpMethod.POST, anonymousUrls.get(RequestMethodEnum.POST.getType()).toArray(new String[0])).permitAll()
-                // PUT
-                .antMatchers(HttpMethod.PUT, anonymousUrls.get(RequestMethodEnum.PUT.getType()).toArray(new String[0])).permitAll()
-                // PATCH
-                .antMatchers(HttpMethod.PATCH, anonymousUrls.get(RequestMethodEnum.PATCH.getType()).toArray(new String[0])).permitAll()
-                // DELETE
-                .antMatchers(HttpMethod.DELETE, anonymousUrls.get(RequestMethodEnum.DELETE.getType()).toArray(new String[0])).permitAll()
-                // 所有类型的接口都放行
-                .antMatchers(anonymousUrls.get(RequestMethodEnum.ALL.getType()).toArray(new String[0])).permitAll()
-                // 所有请求都需要认证
-                .anyRequest().authenticated()
                 .and().apply(securityConfigurerAdapter());
+//                .authorizeHttpRequests((authz) -> authz
+//                        .anyRequest().authenticated()
+//                )
+//                .httpBasic(withDefaults());
+        return http.build();
     }
 
 
@@ -158,26 +166,28 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
             AnonymousAccess anonymousAccess = handlerMethod.getMethodAnnotation(AnonymousAccess.class);
             if (null != anonymousAccess) {
                 List<RequestMethod> requestMethods = new ArrayList<>(infoEntry.getKey().getMethodsCondition().getMethods());
-                RequestMethodEnum request = RequestMethodEnum.find(requestMethods.size() == 0 ? RequestMethodEnum.ALL.getType() : requestMethods.get(0).name());
-                switch (Objects.requireNonNull(request)) {
-                    case GET:
-                        get.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
-                        break;
-                    case POST:
-                        post.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
-                        break;
-                    case PUT:
-                        put.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
-                        break;
-                    case PATCH:
-                        patch.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
-                        break;
-                    case DELETE:
-                        delete.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
-                        break;
-                    default:
-                        all.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
-                        break;
+                RequestMethodEnum request = RequestMethodEnum.find(requestMethods.isEmpty() ? RequestMethodEnum.ALL.getType() : requestMethods.get(0).name());
+                if (null != infoEntry.getKey().getPatternsCondition()) {
+                    switch (Objects.requireNonNull(request)) {
+                        case GET:
+                            get.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
+                            break;
+                        case POST:
+                            post.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
+                            break;
+                        case PUT:
+                            put.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
+                            break;
+                        case PATCH:
+                            patch.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
+                            break;
+                        case DELETE:
+                            delete.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
+                            break;
+                        default:
+                            all.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
+                            break;
+                    }
                 }
             }
         }

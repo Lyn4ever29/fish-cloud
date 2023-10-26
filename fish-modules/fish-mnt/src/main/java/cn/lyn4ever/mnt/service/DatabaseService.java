@@ -21,7 +21,7 @@ import cn.lyn4ever.mnt.service.dto.DatabaseDto;
 import cn.lyn4ever.mnt.service.dto.DatabaseQueryCriteria;
 import org.springframework.data.domain.Pageable;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;

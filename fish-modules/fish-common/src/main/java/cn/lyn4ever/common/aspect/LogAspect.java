@@ -37,7 +37,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.util.WebUtils;
+
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
@@ -87,7 +89,6 @@ public class LogAspect {
         sysLogClientService.saveLog(sysLog);
         return result;
     }
-
     private void getMethodBaseInfo(ProceedingJoinPoint joinPoint, SysLogClientDto sysLog) {
         HttpServletRequest request = WebUtil.getRequest();
         sysLog.setRequestIp(RequestUtil.getIp(request));

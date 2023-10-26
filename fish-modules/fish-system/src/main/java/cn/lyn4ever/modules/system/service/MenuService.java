@@ -20,7 +20,7 @@ import cn.lyn4ever.modules.system.domain.vo.MenuVo;
 import cn.lyn4ever.modules.system.service.dto.MenuDto;
 import cn.lyn4ever.modules.system.service.dto.MenuQueryCriteria;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;

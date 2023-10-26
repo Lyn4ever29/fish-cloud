@@ -5,7 +5,7 @@
     <parent>
         <artifactId>fish-modules</artifactId>
         <groupId>cn.lyn4ever</groupId>
-        <version>1.0.0</version>
+        <version>2.0.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -17,51 +17,51 @@
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>cloud-nacos</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>fish-common</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-redis</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <!--web服务-->
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-mvc</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-security</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <!--数据源-->
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-jpa</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-mysql</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
 
         <!--        <dependency>-->
         <!--            <groupId>cn.lyn4everr</groupId>-->
         <!--            <artifactId>alter-jwt</artifactId>-->
-        <!--            <version>1.0.0</version>-->
+        <!--            <version>2.0.0</version>-->
         <!--            <scope>compile</scope>-->
         <!--        </dependency>-->
         <!--        <dependency>-->
         <!--            <groupId>cn.lyn4everr</groupId>-->
         <!--            <artifactId>fish-common</artifactId>-->
-        <!--            <version>1.0.0</version>-->
+        <!--            <version>2.0.0</version>-->
         <!--        </dependency>-->
     </dependencies>
     <!-- 打包 -->

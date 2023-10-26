@@ -6,7 +6,7 @@
     <parent>
         <groupId>cn.lyn4ever</groupId>
         <artifactId>fish-modules</artifactId>
-        <version>1.0.0</version>
+        <version>2.0.0</version>
     </parent>
 
     <artifactId>fish-example</artifactId>
@@ -21,38 +21,38 @@
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>cloud-nacos</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>fish-common</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-mvc</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-jpa</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-mysql</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-redis</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
         <!-- security模块-->
         <dependency>
             <groupId>cn.lyn4ever</groupId>
             <artifactId>alter-security</artifactId>
-            <version>1.0.0</version>
+            <version>2.0.0</version>
         </dependency>
     </dependencies>
 </project>

@@ -11,16 +11,13 @@ spring:
     redis:
       repositories:
         enabled: false
+      database: ${REDIS_DB:0}
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PWD:}
+      timeout: 5000
   #  pid:
   #    file: /自行指定位置/eladmin.pid
-  redis:
-    #数据库索引
-    database: ${REDIS_DB:0}
-    host: ${REDIS_HOST:127.0.0.1}
-    port: ${REDIS_PORT:6379}
-    password: ${REDIS_PWD:}
-    #连接超时时间
-    timeout: 5000
 
 
 # springdoc-openapi项目配置
